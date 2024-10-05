@@ -15,8 +15,6 @@ coverage
 *.sublime-project
 *.sublime-workspace
 .fusion
-.flow.log
-.flow.log.old
 reports
 vrt/latest
 vrt/diff
@@ -29,3 +27,4 @@ __artifacts__
 test-results
 # Local Netlify folder
 .netlify
+playwright-report 
