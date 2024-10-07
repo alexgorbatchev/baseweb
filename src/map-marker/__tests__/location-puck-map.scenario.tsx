@@ -109,7 +109,7 @@ export function Scenario() {
           </Checkbox>,
         ]}
       />
-      <div className={css({ backgroundColor: theme.colors.backgroundLightAccent })}>
+      <div className={css({ backgroundColor: theme.colors.backgroundAccentLight })}>
         <ReactMapGL
           {...viewport}
           width="100%"
