@@ -8,7 +8,6 @@ LICENSE file in the root directory of this source tree.
 // Sets local package.json to current baseui version.
 
 /* eslint-env node */
-// @flow
 
 const { spawnSync } = require('child_process');
 const fetch = require('node-fetch').default;

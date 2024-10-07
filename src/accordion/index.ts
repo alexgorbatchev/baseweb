@@ -23,7 +23,7 @@ export {
   ToggleIcon as StyledToggleIcon,
   ToggleIconGroup as StyledToggleIconGroup,
 } from './styled-components';
-// Flow
+
 export * from './types';
 export type { AccordionLocale } from './locale';
 /** @deprecated use SharedStylePropsArg instead. To be removed in future versions.*/

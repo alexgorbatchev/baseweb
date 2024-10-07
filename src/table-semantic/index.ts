@@ -25,5 +25,4 @@ export {
   StyledSortDescIcon,
   StyledSortNoneIcon,
 } from './styled-components';
-// Flow
 export * from './types';

@@ -69,7 +69,8 @@ export default class FormControl extends React.Component<FormControlProps, FormC
       counter,
     } = this.props;
 
-    // @ts-expect-error todo(flow->ts): looks dangerous
+    // TODO (flow->ts) looks dangerous
+    // @ts-expect-error
     const onlyChildProps = React.Children.only(children).props;
 
     const sharedProps: StyleProps = {
@@ -171,7 +172,8 @@ export default class FormControl extends React.Component<FormControlProps, FormC
 
                 // @ts-expect-error
                 const key = child.key || String(index);
-                // @ts-expect-error todo(flow->ts): looks dangerous -- can be possible error
+                // TODO (flow->ts) looks dangerous -- can be possible error
+                // @ts-expect-error
                 return React.cloneElement(child, {
                   key,
                   'aria-errormessage': error ? captionId : null,

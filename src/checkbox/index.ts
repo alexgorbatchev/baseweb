@@ -22,5 +22,4 @@ export {
 
 export { STATE_TYPE, STYLE_TYPE, LABEL_PLACEMENT } from './constants';
 
-// Flow
 export * from './types';

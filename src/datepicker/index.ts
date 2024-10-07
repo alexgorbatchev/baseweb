@@ -23,7 +23,6 @@ export * from './styled-components';
 // Dependency components and their types
 export * from '../timepicker';
 export * from '../timezonepicker';
-// Flow
 export * from './types';
 export type { DatepickerLocale } from './locale';
 /** @deprecated use SharedStyleProps instead. To be removed in future versions.*/

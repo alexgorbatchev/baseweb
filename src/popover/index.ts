@@ -24,5 +24,4 @@ export {
   Padding as StyledPadding,
 } from './styled-components';
 
-// Flow
 export * from './types';

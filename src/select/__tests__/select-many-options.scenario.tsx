@@ -39,13 +39,15 @@ const FixedSizeListItem = ({ data, index, style }) => {
 // eslint-disable-next-line react/display-name,@typescript-eslint/no-explicit-any
 const VirtualDropdown = React.forwardRef<HTMLUListElement, any>((props, ref) => {
   const children = React.Children.toArray(props.children);
-  // @ts-expect-error todo(flow->ts) type error in react 17
+  // TODO (flow->ts) type error in react 18
+  // @ts-expect-error
   if (!children[0] || !children[0].props.item) {
     return (
       <StyledList $style={{ height: EMPTY_LIST_HEIGHT + 'px' }} ref={ref}>
         <StyledEmptyState
           {
-            // @ts-expect-error todo(flow->ts) type error in react 17
+            // TODO (flow->ts) type error in react 18
+            // @ts-expect-error
             ...children[0].props
           }
         />

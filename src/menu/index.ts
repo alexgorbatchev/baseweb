@@ -42,7 +42,6 @@ export {
   StyledProfileBody,
   StyledMenuDivider,
 } from './styled-components';
-// Flow
 export * from './types';
 export type { MenuLocale } from './locale';
 /** @deprecated use Item instead. To be removed in future versions.*/

@@ -8,7 +8,6 @@ LICENSE file in the root directory of this source tree.
 */
 
 /* eslint-env node */
-// @flow
 
 const { writeFileSync, readdirSync, readFileSync, lstatSync } = require('fs');
 const { join, basename, resolve } = require('path');

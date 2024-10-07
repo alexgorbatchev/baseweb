@@ -21,7 +21,8 @@ type Options<Value, FilterParams> = {
 function CustomColumn<Value, FilterParams>(
   options: Options<Value, FilterParams>
 ): ColumnOptions<Value, FilterParams> {
-  // @ts-expect-error todo(flow->ts) types does not much
+  // TODO (flow->ts) types does not much
+  // @ts-expect-error
   return Column({ kind: COLUMNS.CUSTOM, ...options });
 }
 

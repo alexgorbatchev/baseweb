@@ -520,12 +520,14 @@ class Select extends React.Component<SelectProps, SelectState> {
     if (typeof this.props.inputRef === 'function') {
       this.props.inputRef(input);
     } else if (this.props.inputRef) {
-      // @ts-expect-error todo(flow->ts) MutableRefObject
+      // TODO (flow->ts) MutableRefObject
+      // @ts-expect-error
       this.props.inputRef.current = input;
     }
 
     if (this.props.controlRef && typeof this.props.controlRef === 'function') {
-      // @ts-expect-error todo(flow->ts) according to types this code is not reachable
+      // TODO (flow->ts) according to types this code is not reachable
+      // @ts-expect-error
       this.props.controlRef(input);
     }
   };
@@ -746,7 +748,6 @@ class Select extends React.Component<SelectProps, SelectState> {
           {...sharedProps}
           {...inputContainerProps}
         >
-          {/* $FlowExpectedError[cannot-spread-inexact] */}
           <input
             aria-hidden
             // @ts-ignore
@@ -760,12 +761,7 @@ class Select extends React.Component<SelectProps, SelectState> {
               padding: 0,
             }}
             tabIndex={-1}
-            {...(overrides.Input
-              ? overrides.Input.props
-                ? // $FlowExpectedError[not-an-object]
-                  overrides.Input.props
-                : {}
-              : {})}
+            {...(overrides.Input ? (overrides.Input.props ? overrides.Input.props : {}) : {})}
           />
         </InputContainer>
       );
@@ -921,7 +917,8 @@ class Select extends React.Component<SelectProps, SelectState> {
       // @ts-ignore
       this.options.concat(this.props.value).every(filterDoesNotMatchOption)
     ) {
-      // @ts-expect-error todo(flow->ts) this.options is typed as a read-only array
+      // TODO (flow->ts) this.options is typed as a read-only array
+      // @ts-expect-error
       this.options.push({
         id: filterValue,
         // @ts-ignore
