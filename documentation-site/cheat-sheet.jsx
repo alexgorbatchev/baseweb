@@ -4450,7 +4450,7 @@ const outlines = [
           { name: 'backgroundNegative', lineStart: 126 },
           { name: 'backgroundWarning', lineStart: 127 },
           { name: 'backgroundPositive', lineStart: 128 },
-          { name: 'backgroundLightAccent', lineStart: 129 },
+          { name: 'backgroundAccentLight', lineStart: 129 },
           { name: 'backgroundLightPositive', lineStart: 130 },
           { name: 'backgroundLightNegative', lineStart: 131 },
           { name: 'backgroundLightWarning', lineStart: 132 },

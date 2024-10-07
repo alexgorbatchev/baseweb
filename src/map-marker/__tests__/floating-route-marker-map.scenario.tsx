@@ -126,7 +126,7 @@ export function Scenario() {
           />,
         ]}
       />
-      <div className={css({ backgroundColor: theme.colors.backgroundLightAccent })}>
+      <div className={css({ backgroundColor: theme.colors.backgroundAccentLight })}>
         <ReactMapGL
           {...viewport}
           width="100%"
