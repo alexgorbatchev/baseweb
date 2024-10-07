@@ -61,7 +61,7 @@ const COLORS = [
   'backgroundNegative',
   'backgroundWarning',
   'backgroundPositive',
-  'backgroundLightAccent',
+  'backgroundAccentLight',
   'backgroundLightNegative',
   'backgroundLightWarning',
   'backgroundLightPositive',
