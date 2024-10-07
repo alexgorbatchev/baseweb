@@ -171,6 +171,8 @@ export default function MeasureColumnWidths({
   }
 
   return (
+    // TODO agorbatchev: remove this eslint-disable and fix the issue
+    // eslint-disable-next-line jsx-a11y/role-supports-aria-props
     <div className={hiddenStyle} aria-hidden="true" role="none">
       {columns.map((column, i) => {
         return (
