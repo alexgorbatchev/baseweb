@@ -579,6 +579,8 @@ const InnerTableElement = React.forwardRef<
               if (rowAction.renderButton) {
                 const RowActionButton = rowAction.renderButton;
 
+                // TODO agorbatchev: remove this eslint-disable and fix the issue
+                // eslint-disable-next-line react/jsx-key
                 return <RowActionButton />;
               }
 

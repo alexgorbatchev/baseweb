@@ -110,6 +110,8 @@ class PaymentCard extends React.Component<PaymentCardProps> {
         [SIZE.default]: theme.sizing.scale900,
         [SIZE.large]: theme.sizing.scale1000,
       };
+      // TODO agorbatchev: remove this eslint-disable and fix the issue
+      // eslint-disable-next-line react/display-name
       return () => (
         <IconWrapper $size={size} {...iconWrapperProps}>
           {/* @ts-ignore */}
