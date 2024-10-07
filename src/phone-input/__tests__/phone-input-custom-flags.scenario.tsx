@@ -12,7 +12,6 @@ import type { CountryIso } from '../../phone-input';
 function CustomFlag(props: { children: React.ReactNode; $iso: CountryIso }) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, ...rest } = props;
-  //$FlowExpectedError[cannot-spread-inexact]
   return <StyledFlag iso={props.$iso} {...rest} />;
 }
 

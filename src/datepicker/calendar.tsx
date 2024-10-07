@@ -230,7 +230,6 @@ export default class Calendar<T = Date> extends React.Component<
     const currentDate = this.dateHelpers.date();
     switch (key) {
       case 'ArrowLeft':
-        // adding `new Date()` as the last option to satisfy Flow
         highlightedDate = this.dateHelpers.subDays(
           highlightedDate ? highlightedDate : currentDate,
           1
@@ -238,47 +237,40 @@ export default class Calendar<T = Date> extends React.Component<
         break;
       case 'ArrowRight':
         highlightedDate = this.dateHelpers.addDays(
-          // adding `new Date()` as the last option to satisfy Flow
           highlightedDate ? highlightedDate : currentDate,
           1
         );
         break;
       case 'ArrowUp':
         highlightedDate = this.dateHelpers.subWeeks(
-          // adding `new Date()` as the last option to satisfy Flow
           highlightedDate ? highlightedDate : currentDate,
           1
         );
         break;
       case 'ArrowDown':
         highlightedDate = this.dateHelpers.addWeeks(
-          // adding `new Date()` as the last option to satisfy Flow
           highlightedDate ? highlightedDate : currentDate,
           1
         );
         break;
       case 'Home':
         highlightedDate = this.dateHelpers.getStartOfWeek(
-          // adding `new Date()` as the last option to satisfy Flow
           highlightedDate ? highlightedDate : currentDate
         );
         break;
       case 'End':
         highlightedDate = this.dateHelpers.getEndOfWeek(
-          // adding `new Date()` as the last option to satisfy Flow
           highlightedDate ? highlightedDate : currentDate
         );
         break;
       case 'PageUp':
         highlightedDate = this.dateHelpers.subMonths(
-          // adding `new Date()` as the last option to satisfy Flow
           highlightedDate ? highlightedDate : currentDate,
           1
         );
         break;
       case 'PageDown':
         highlightedDate = this.dateHelpers.addMonths(
-          // adding `new Date()` as the last option to satisfy Flow
           highlightedDate ? highlightedDate : currentDate,
           1
         );

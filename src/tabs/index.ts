@@ -18,7 +18,6 @@ export {
   TabBar as StyledTabBar,
   TabContent as StyledTabContent,
 } from './styled-components';
-// Flow
 export * from './types';
 /** @deprecated use StatefulTabsState instead. To be removed in future versions.*/
 export type State = StatefulTabsState;

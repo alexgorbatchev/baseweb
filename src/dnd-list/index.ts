@@ -22,7 +22,7 @@ export {
   CloseHandle as StyledCloseHandle,
   Label as StyledLabel,
 } from './styled-components';
-// Flow
+
 export * from './types';
 /** @deprecated use SharedStylePropsArg instead. To be removed in future versions.*/
 export type SharedStylePropsArgT = SharedStylePropsArg;

@@ -18,7 +18,8 @@ import moment from 'moment';
 const momentAdapter = new MomentUtils({ instance: moment });
 /* eslint-enable import/extensions */
 const dateHelpers = new DateHelpers(adapter);
-// @ts-expect-error todo(flow->ts)
+// TODO (flow->ts)
+// @ts-expect-error
 const momentHelpers = new DateHelpers(momentAdapter);
 
 // these are helpers that we want to test

@@ -25,7 +25,7 @@ const stopPropagation = (e) => e.stopPropagation();
 
 class StatelessCheckbox extends React.Component<CheckboxProps, CheckboxState> {
   static defaultProps: DefaultProps = {
-    overrides: {}, // todo(flow->ts): missing field in flow types
+    overrides: {},
     checked: false,
     containsInteractiveElement: false,
     disabled: false,

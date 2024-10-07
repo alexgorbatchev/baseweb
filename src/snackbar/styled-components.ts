@@ -69,24 +69,21 @@ export const StyledMessage = styled<
   {
     $hasSuffix: boolean;
   }
->(
-  'p', //$FlowExpectedError[incompatible-shape]
-  ({ $theme, $hasSuffix }) => {
-    const prefixPadding: string = $theme.direction === 'rtl' ? 'paddingRight' : 'paddingLeft';
-    const suffixPadding: string = $theme.direction === 'rtl' ? 'paddingLeft' : 'paddingRight';
-    return {
-      ...$theme.typography.ParagraphMedium,
-      '-webkit-box-orient': 'vertical',
-      '-webkit-line-clamp': 3,
-      display: '-webkit-box',
-      marginTop: $theme.sizing.scale600,
-      marginBottom: $theme.sizing.scale600,
-      overflow: 'hidden',
-      [prefixPadding]: $theme.sizing.scale600,
-      [suffixPadding]: $hasSuffix ? $theme.sizing.scale300 : $theme.sizing.scale600,
-    };
-  }
-);
+>('p', ({ $theme, $hasSuffix }) => {
+  const prefixPadding: string = $theme.direction === 'rtl' ? 'paddingRight' : 'paddingLeft';
+  const suffixPadding: string = $theme.direction === 'rtl' ? 'paddingLeft' : 'paddingRight';
+  return {
+    ...$theme.typography.ParagraphMedium,
+    '-webkit-box-orient': 'vertical',
+    '-webkit-line-clamp': 3,
+    display: '-webkit-box',
+    marginTop: $theme.sizing.scale600,
+    marginBottom: $theme.sizing.scale600,
+    overflow: 'hidden',
+    [prefixPadding]: $theme.sizing.scale600,
+    [suffixPadding]: $hasSuffix ? $theme.sizing.scale300 : $theme.sizing.scale600,
+  };
+});
 
 StyledMessage.displayName = 'StyledMessage';
 

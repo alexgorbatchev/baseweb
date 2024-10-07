@@ -1,5 +1,0 @@
-[include]
-<PROJECT_ROOT>/src/
-
-[ignore]
-<PROJECT_ROOT>/fixtures/.*

@@ -6,7 +6,6 @@ LICENSE file in the root directory of this source tree.
 */
 
 /* eslint-env node */
-// @flow
 
 const childProcess = require('child_process');
 const path = require('path');

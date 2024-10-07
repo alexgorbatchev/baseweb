@@ -149,7 +149,8 @@ const Tag = React.forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
       onBlur={forkBlur(rootProps, handleBlur)}
     >
       {StartEnhancer &&
-        // @ts-expect-error todo(flow->ts) it is not expected to be a number
+        // TODO (flow->ts) it is not expected to be a number
+        // @ts-expect-error
         StartEnhancer !== 0 && (
           <StartEnhancerContainer {...startEnhancerContainerProps}>
             <StartEnhancer />

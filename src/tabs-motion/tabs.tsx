@@ -170,17 +170,20 @@ export function Tabs({
   // the tab is not in view, the page will scroll it into view.
   // TODO: replace with custom scrolling logic.
   React.useEffect(() => {
-    // Flow needs this condition pulled out.
     if (activeTabRef.current) {
       if (
         isHorizontal(orientation)
-          ? // @ts-expect-error todo(flow->ts) maybe parentElement?
+          ? // TODO (flow->ts) maybe parentElement?
+            // @ts-expect-error
             activeTabRef.current.parentNode.scrollWidth >
-            // @ts-expect-error todo(flow->ts) maybe parentElement?
+            // TODO (flow->ts) maybe parentElement?
+            // @ts-expect-error
             activeTabRef.current.parentNode.clientWidth
-          : // @ts-expect-error todo(flow->ts) maybe parentElement?
+          : // TODO (flow->ts) maybe parentElement?
+            // @ts-expect-error
             activeTabRef.current.parentNode.scrollHeight >
-            // @ts-expect-error todo(flow->ts) maybe parentElement?
+            // TODO (flow->ts) maybe parentElement?
+            // @ts-expect-error
             activeTabRef.current.parentNode.clientHeight
       ) {
         if (keyUpdated > 1) {
@@ -417,7 +420,8 @@ function InternalTab({
   );
 
   // Keyboard focus management
-  // @ts-expect-error todo(flow->ts): deps are required
+  // TODO (flow->ts) deps are required
+  // @ts-expect-error
   const handleKeyDown = React.useCallback((event) => {
     // WAI-ARIA 1.1
     // https://www.w3.org/TR/wai-aria-practices-1.1/#tabpanel

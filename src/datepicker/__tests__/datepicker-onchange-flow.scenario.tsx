@@ -28,9 +28,6 @@ export function Scenario() {
       />
 
       <Datepicker
-        // Flow cannot cast Array<Date> to explicitly set Array<?Date>. Polymorphic
-        // state could be typed as $ReadOnlyArray. See covariant case below.
-        // $FlowExpectedError
         onChange={({ date }) => Array.isArray(date) && setPolymorphic(date)}
         // date property of onRangeChange is of type Array<?Date>
         onRangeChange={({ date }) => Array.isArray(date) && setPolymorphic(date)}
@@ -41,7 +38,8 @@ export function Scenario() {
       <Datepicker
         onChange={({ date }) => Array.isArray(date) && setCovariant(date)}
         range
-        // @ts-expect-error todo(flow->ts)
+        // TODO (flow->ts)
+        // @ts-expect-error
         value={covariant}
       />
     </div>

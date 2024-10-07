@@ -79,5 +79,5 @@ export type SharedStylePropsArg = {
   $isRemovableByMove: boolean;
   $isOutOfBounds: boolean;
   $value: React.ReactNode;
-  $index: number; // todo(flow->ts): missing field in flow types
+  $index: number;
 };

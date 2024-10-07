@@ -16,7 +16,8 @@ class StatefulComponent<T = Date> extends React.Component<DatepickerProps<T>> {
   static defaultProps: DatepickerProps<unknown> = {
     initialState: {},
     stateReducer: (type, nextState) => nextState,
-    // @ts-expect-error todo(flow->ts) might be onSelect can be removed
+    // TODO (flow->ts) might be onSelect can be removed
+    // @ts-expect-error
     onSelect: () => {},
   };
 

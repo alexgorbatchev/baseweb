@@ -70,7 +70,8 @@ class PaymentCard extends React.Component<PaymentCardProps> {
     super(props);
     // For adding new custom card type, add card config to custom-cards.config.js
     CUSTOM_CARDS_CONFIGURATION.forEach((cardTypeConfig) =>
-      // @ts-expect-error todo(flow-ts) upgrade card-validator dependency
+      // TODO (flow-ts) upgrade card-validator dependency
+      // @ts-expect-error
       valid.creditCardType.addCard(cardTypeConfig)
     );
   }
@@ -110,6 +111,7 @@ class PaymentCard extends React.Component<PaymentCardProps> {
         [SIZE.default]: theme.sizing.scale900,
         [SIZE.large]: theme.sizing.scale1000,
       };
+      // eslint-disable-next-line react/display-name
       return () => (
         <IconWrapper $size={size} {...iconWrapperProps}>
           {/* @ts-ignore */}
@@ -123,7 +125,6 @@ class PaymentCard extends React.Component<PaymentCardProps> {
     return (
       <ThemeContext.Consumer>
         {(theme) => (
-          //$FlowExpectedError[cannot-spread-inexact]
           <Input
             size={size}
             aria-label={ariaLabel}
@@ -140,10 +141,12 @@ class PaymentCard extends React.Component<PaymentCardProps> {
                 // @ts-ignore
                 e.target.selectionStart
               );
-              // @ts-expect-error todo(flow->ts): looks dangerous
+              // TODO (flow->ts) looks dangerous
+              // @ts-expect-error
               this.caretPosition = position;
               this.inRef = e.target;
-              // @ts-expect-error todo(flow->ts): looks dangerous
+              // TODO (flow->ts) looks dangerous
+              // @ts-expect-error
               e.target.value = value;
               onChange && onChange(e);
             }}

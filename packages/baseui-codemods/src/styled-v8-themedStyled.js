@@ -47,10 +47,6 @@ function findStyledComponentsWithTheme(p) {
 }
 
 class ThemeCache {
-  count: number;
-  // flowlint-next-line unclear-type:off
-  visitedGenericTypes: { [string]: { node: any, position: number } };
-
   constructor() {
     this.count = 0;
     this.visitedGenericTypes = {};

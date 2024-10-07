@@ -131,7 +131,8 @@ export default class TableBuilder<T> extends React.Component<
 
     const columns = React.Children.toArray(children)
       .filter(Boolean)
-      // @ts-expect-error todo(flow->ts): limit children to be only react elements
+      // TODO (flow->ts) limit children to be only react elements
+      // @ts-expect-error
       .map((child) => child.props);
 
     // @ts-ignore

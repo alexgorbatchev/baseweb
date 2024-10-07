@@ -6,7 +6,6 @@ LICENSE file in the root directory of this source tree.
 */
 
 /* eslint-env node */
-// @flow
 
 const fetch = require('node-fetch').default;
 

@@ -40,14 +40,14 @@ export type ComboboxProps<Option = unknown> = {
   id?: string;
   name?: string;
   // A ref to access the inner Input component.
-  // todo(flow->ts)  <any>
+  // TODO (flow->ts)  <any>
   inputRef?: React.RefObject<HTMLElement>;
   // Called when input loses focus.
   onBlur?: (a: React.ChangeEvent<HTMLInputElement>) => unknown;
   // Called when input value changes or option is selected. If user selects a
   // suggested option, that option will be provided as the second function parameter.
   // Otherwise the second parameter will be null.
-  // TODO(v11): consider consolidating function params into a single object bag.
+  // TODO (v11): consider consolidating function params into a single object bag.
   onChange: (b: string, a: Option | null) => unknown;
   // Called when input enters focus.
   onFocus?: (a: React.ChangeEvent<HTMLInputElement>) => unknown;

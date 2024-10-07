@@ -22,7 +22,7 @@ function getSharedProps() {
 
 describe('Menu Stateless Component', () => {
   it('renders basic menu', () => {
-    // @ts-expect-error todo(flow->ts)
+    // @ts-expect-error
     const { container } = render(<Menu {...getSharedProps()} />);
 
     const list = container.querySelector('ul');
@@ -42,7 +42,7 @@ describe('Menu Stateless Component', () => {
         },
       },
     };
-    // @ts-expect-error todo(flow->ts)
+    // @ts-expect-error
     const { container } = render(<Menu {...props} />);
     const options = getAllByTestId(container, 'option');
     expect(options.length).toBe(2);
@@ -52,7 +52,7 @@ describe('Menu Stateless Component', () => {
     const original = console.error;
     console.error = jest.fn();
     const itemsWithDivider = [{ label: 'item1' }, { divider: true }, { label: 'item2' }];
-    // @ts-expect-error todo(flow->ts)
+    // @ts-expect-error
     render(<Menu {...getSharedProps()} items={itemsWithDivider} />);
     expect(console.error).not.toHaveBeenCalledWith(
       expect.stringContaining('Each child in a list should have a unique "key" prop.'),

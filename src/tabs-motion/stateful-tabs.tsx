@@ -18,7 +18,8 @@ const getInitialState = (children: React.ReactNode, initialState?: StatefulTabsS
     // @ts-ignore
     const firstKey = React.Children.map(
       children,
-      // @ts-expect-error todo(flow->ts) child might be not a ReactElement, theoretically including null
+      // TODO (flow->ts) child might be not a ReactElement, theoretically including null
+      // @ts-expect-error
       (child, index) => child.key || String(index)
     )[0];
     return { activeKey: firstKey };

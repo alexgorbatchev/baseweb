@@ -21,7 +21,6 @@ import type {
 import { useUIDSeed } from 'react-uid';
 
 const DEFAULT_PROPS = {
-  // keeping it in defaultProps to satisfy Flow
   initialState: {
     // We start the index at -1 to indicate that no highlighting exists initially
     highlightedIndex: -1,
@@ -57,7 +56,8 @@ class MenuStatefulContainerInner extends React.Component<
   static defaultProps = DEFAULT_PROPS;
 
   state: StatefulContainerState = {
-    // @ts-expect-error todo(flow->ts): probably MenuStatefulContainer should be used instead of this.constructor
+    // TODO (flow->ts) probably MenuStatefulContainer should be used instead of this.constructor
+    // @ts-expect-error
     ...this.constructor.defaultProps.initialState,
     ...this.props.initialState,
   };

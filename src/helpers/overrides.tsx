@@ -52,10 +52,7 @@ export function getOverride(_override: any): any {
 
   // Check if override is OverrideObjectT
   if (_override && typeof _override === 'object') {
-    // Remove this 'any' once this flow issue is fixed:
-    // https://github.com/facebook/flow/issues/6666
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (_override as any).component;
+    return _override.component;
   }
 
   // null/undefined
@@ -69,13 +66,13 @@ export function getOverride(_override: any): any {
 export function getOverrideProps<T>(_override?: Override | null): T {
   if (_override && typeof _override === 'object') {
     if (typeof _override.props === 'object') {
-      //@ts-expect-error
+      // @ts-expect-error
       return {
         ..._override.props,
         $style: _override.style,
       };
     } else {
-      //@ts-expect-error
+      // @ts-expect-error
       return {
         $style: _override.style,
       };
@@ -114,11 +111,11 @@ export function getOverrides<T = { [k: string]: any }>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   defaultComponent: React.ComponentType<any>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-): [React.ComponentType<any>, T /* todo(flow->ts) {[k: string]: any} */] {
+): [React.ComponentType<any>, T] {
   const Component = getOverride(_override) || defaultComponent;
 
   if (_override && typeof _override === 'object' && typeof _override.props === 'function') {
-    // TODO(v11)
+    // TODO v11
     if (__DEV__) {
       console.warn(
         'baseui:Overrides Props as a function will be removed in the next major version. Override the whole component instead. ' +

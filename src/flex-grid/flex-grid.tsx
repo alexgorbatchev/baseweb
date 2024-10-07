@@ -50,7 +50,7 @@ const FlexGrid: React.FC<
         flattenFragments(children).map(
           // @ts-ignore
           (
-            // todo(flow->ts): incorrect component typings - children should be strictly ReactElement[] or implementation below needs to be updated to handle other things that can be in ReactNode
+            // TODO (flow->ts) incorrect component typings - children should be strictly ReactElement[] or implementation below needs to be updated to handle other things that can be in ReactNode
             child: React.ReactElement,
             flexGridItemIndex: number,
             { length: flexGridItemCount }: React.ReactNode[]

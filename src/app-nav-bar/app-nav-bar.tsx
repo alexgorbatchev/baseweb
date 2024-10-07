@@ -171,7 +171,8 @@ export default function AppNavBar(props: AppNavBarProps) {
         </Spacing>
 
         {secondaryMenu &&
-          // @ts-expect-error todo(flow->ts) always false
+          // TODO (flow->ts) always false
+          // @ts-expect-error
           mobileSubNavPosition === POSITION.horizontal && (
             <SecondaryMenu
               items={secondaryMenu}

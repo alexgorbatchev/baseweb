@@ -6,8 +6,8 @@ LICENSE file in the root directory of this source tree.
 */
 /* global document */
 import * as React from 'react';
-import { act } from 'react-dom/test-utils';
 import {
+  act,
   render,
   findByText,
   fireEvent,

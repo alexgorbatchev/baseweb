@@ -230,9 +230,11 @@ class TimePicker<T = Date> extends React.Component<TimePickerProps<T>, TimePicke
     const maxDate = this.props.adapter.toJsDate(max);
     const midnightDate = this.props.adapter.toJsDate(dayStart);
     return {
-      // @ts-expect-error todo(flow->ts)
+      // TODO (flow->ts)
+      // @ts-expect-error
       start: (minDate - midnightDate) / 1000,
-      // @ts-expect-error todo(flow->ts)
+      // TODO (flow->ts)
+      // @ts-expect-error
       end: (maxDate - midnightDate) / 1000,
     };
   };

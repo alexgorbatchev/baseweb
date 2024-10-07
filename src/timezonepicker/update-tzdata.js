@@ -5,7 +5,6 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 /* eslint-env node */
-// @flow
 
 const fs = require('fs');
 const path = require('path');
@@ -22,7 +21,6 @@ async function main() {
     const tmpDir = path.join(__dirname, 'tmp');
     try {
       await fs.promises.mkdir(tmpDir);
-      // $FlowFixMe - flow is not aware of recursive option
       await fs.promises.rmdir(tmpDir, { recursive: true });
       await fs.promises.mkdir(tmpDir);
     } catch (e) {}
@@ -63,8 +61,6 @@ LICENSE file in the root directory of this source tree.
 
     const tzdataPath = path.join(__dirname, 'tzdata.ts');
     await fs.promises.writeFile(tzdataPath, file.join('\n'));
-
-    // $FlowFixMe - flow is not aware of recursive option
     await fs.promises.rmdir(tmpDir, { recursive: true });
   } catch (error) {
     console.error(error);

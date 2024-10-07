@@ -178,8 +178,8 @@ export type BodyStylePropsArg = {
 };
 
 export type InnerStylePropsArg = {};
-/*
- * Can't use Intersection types because of https://github.com/facebook/flow/issues/7946
+/**
+ * TODO Can't use Intersection types because of https://github.com/facebook/flow/issues/7946
  * export type SharedStylePropsArgT = ArrowStylePropsArgT & BodyStylePropsArgT & InnerStylePropsArgT;
  */
 export type SharedStylePropsArg = {} & ArrowStylePropsArg & BodyStylePropsArg;

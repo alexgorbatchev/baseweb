@@ -22,7 +22,8 @@ function groupOptions(options: Value) {
     (groups, option) => {
       if (option.__optgroup) {
         if (!groups[option.__optgroup]) {
-          // @ts-expect-error todo(flow->ts): modifying what is declared as readonly array
+          // TODO (flow->ts) modifying what is declared as readonly array
+          // @ts-expect-error
           groups[option.__optgroup] = [];
         }
         groups[option.__optgroup].push(option);

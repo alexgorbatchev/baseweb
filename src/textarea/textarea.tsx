@@ -76,7 +76,6 @@ class Textarea extends React.Component<
         $resize={this.props.resize}
         {...rootProps}
       >
-        {/* $FlowFixMe */}
         <BaseInput
           {...this.props}
           type={CUSTOM_INPUT_TYPE.textarea}

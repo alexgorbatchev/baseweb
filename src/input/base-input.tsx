@@ -117,7 +117,7 @@ class BaseInput<T extends HTMLInputElement | HTMLTextAreaElement> extends React.
     if (input) {
       const nativeInputValue = Object.getOwnPropertyDescriptor(
         this.props.type === CUSTOM_INPUT_TYPE.textarea
-          ? // todo(flow->ts): globals, not props of window object
+          ? // TODO (flow->ts) globals, not props of window object
             HTMLTextAreaElement.prototype
           : HTMLInputElement.prototype,
         'value'

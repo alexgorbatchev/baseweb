@@ -8,5 +8,4 @@ import { StyledSpinner } from './styled-components';
 
 export { StyledSpinner as Spinner };
 export { SIZE } from './constants';
-// Flow
 export * from './types';

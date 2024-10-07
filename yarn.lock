@@ -397,7 +397,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/plugin-syntax-flow@^7.16.7", "@babel/plugin-syntax-flow@^7.25.7":
+"@babel/plugin-syntax-flow@^7.25.7":
   version "7.25.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.25.7.tgz#7d1255201b55d7644c57e0eb354aaf9f8b8d2d02"
   integrity sha512-fyoj6/YdVtlv2ROig/J0fP7hh/wNO1MJGm1NR70Pg7jbkF+jOUL9joorqaCOQh06Y+LfgTagHzC8KqZ3MF782w==
@@ -641,7 +641,7 @@
     "@babel/helper-plugin-utils" "^7.25.7"
     "@babel/plugin-syntax-export-namespace-from" "^7.8.3"
 
-"@babel/plugin-transform-flow-strip-types@^7.16.7", "@babel/plugin-transform-flow-strip-types@^7.25.7":
+"@babel/plugin-transform-flow-strip-types@^7.25.7":
   version "7.25.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.25.7.tgz#32be871a80e10bbe6d8b1c8a7eeedbbc896d5e80"
   integrity sha512-q8Td2PPc6/6I73g96SreSUCKEcwMXCwcXSIAVTyTTN6CpJe0dMj8coxu1fg1T9vfBLi6Rsi6a4ECcFBbKabS5w==
@@ -1078,7 +1078,7 @@
     core-js-compat "^3.38.1"
     semver "^6.3.1"
 
-"@babel/preset-flow@^7.0.0", "@babel/preset-flow@^7.16.7":
+"@babel/preset-flow@^7.0.0":
   version "7.25.7"
   resolved "https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.25.7.tgz#a9460677c182c2e105c32567a036d360c86668a9"
   integrity sha512-q2x3g0YHzo/Ohsr51KOYS/BtZMsvkzVd8qEyhZAyTatYdobfgXCuyppTqTuIhdq5kR/P3nyyVvZ6H5dMc4PnCQ==
@@ -8643,11 +8643,6 @@ flow-annotation-check@1.8.1:
     babel-plugin-transform-object-rest-spread "^6.20.2"
     glob "7.1.1"
     load-pkg "^3.0.1"
-
-flow-bin@0.131.0:
-  version "0.131.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.131.0.tgz#d4228b6070afdf3b2a76acdee77a7f3f8e8f5133"
-  integrity sha512-fZmoIBcDrtLhy/NNMxwJysSYzMr1ksRcAOMi3AHSoYXfcuQqTvhGJx+wqjlIOqIwz8RRYm8J4V4JrSJbIKP+Xg==
 
 flow-coverage-report@^0.6.0:
   version "0.6.2"

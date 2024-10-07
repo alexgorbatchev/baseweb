@@ -16,7 +16,6 @@ export {
   Body as StyledBody,
   CloseIconSvg as StyledCloseIcon,
 } from './styled-components';
-// Flow
 export * from './types';
 export type { ToastLocale } from './locale';
 /** @deprecated To be removed in future versions.*/

@@ -14,7 +14,6 @@ export { SIZE };
 export { StyledRoot, StyledMaxLabel, StyledDropdownContainer } from './styled-components';
 // Constants
 export { STATE_CHANGE_TYPE } from './constants';
-// Flow
 export * from './types';
 export type { PaginationLocale } from './locale';
 /** @deprecated use StatefulContainerState instead. To be removed in future versions.*/

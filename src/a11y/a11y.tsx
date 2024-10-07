@@ -28,13 +28,16 @@ function validateNode(node: HTMLElement) {
 function segmentViolationsByNode(violations: axe.Result[]): Array<[string, axe.Result[]]> {
   const nodes = violations.reduce((map, violation) => {
     violation.nodes.forEach((node) => {
-      // @ts-expect-error todo(flow-ts) node.target is an Array
+      // TODO (flow->ts) node.target is an Array
+      // @ts-expect-error
       if (!map[node.target]) {
-        // @ts-expect-error todo(flow-ts) node.target is an Array
+        // TODO (flow->ts) node.target is an Array
+        // @ts-expect-error
         map[node.target] = [violation];
       } else {
-        // todo(flow->ts) node.target is an Array
-        // @ts-expect-error todo(flow-ts) result of Array.push is not Array
+        // TODO (flow->ts) node.target is an Array
+        // TODO (flow->ts) result of Array.push is not Array
+        // @ts-expect-error
         map[node.target] = map[node.target].push(violation);
       }
     });

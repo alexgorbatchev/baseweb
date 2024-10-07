@@ -26,7 +26,6 @@ export {
   StyledAction,
   StyledSortableLabel,
 } from './styled-components';
-// Flow
 export * from './types';
 /** @deprecated use HeadCellOverrides instead. To be removed in future versions.*/
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

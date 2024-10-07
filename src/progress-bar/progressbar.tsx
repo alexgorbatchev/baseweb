@@ -137,10 +137,7 @@ class ProgressBar extends React.Component<
 
 const ForwardedProgressBar = React.forwardRef<HTMLDivElement, Partial<ProgressBarProps>>(
   // @ts-ignore
-  (props: ProgressBarProps, ref) => (
-    //$FlowExpectedError[cannot-spread-inexact]
-    <ProgressBar forwardedRef={ref} {...props} />
-  )
+  (props: ProgressBarProps, ref) => <ProgressBar forwardedRef={ref} {...props} />
 );
 ForwardedProgressBar.displayName = 'ProgressBar';
 export default ForwardedProgressBar;

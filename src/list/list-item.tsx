@@ -86,7 +86,8 @@ const ListItem = React.forwardRef<HTMLLIElement, ListProps>((props: ListProps, r
       <Content $mLeft={!Artwork} $sublist={!!props.sublist} {...contentProps}>
         {props.children}
         {EndEnhancer &&
-          // @ts-expect-error todo(flow->ts) it is not expected to be a number
+          // TODO (flow->ts) it is not expected to be a number
+          // @ts-expect-error
           EndEnhancer !== 0 && (
             <EndEnhancerContainer {...endEnhancerContainerProps}>
               <EndEnhancer />

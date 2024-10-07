@@ -33,7 +33,8 @@ const StyledHeadingCell = withStyle(StyledCell, {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const StyledDeltaCell = withStyle<typeof StyledCell, any>(StyledCell, (props) => ({
-  // @ts-expect-error todo(flow->ts) this probably can be removed
+  // TODO (flow->ts) this probably can be removed
+  // @ts-expect-error
   ...props.$theme.typography.font500,
   alignItems: 'center',
   backgroundColor: props.$isNegative

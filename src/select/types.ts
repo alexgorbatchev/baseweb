@@ -16,13 +16,13 @@ export type Type = keyof typeof TYPE;
 
 export type Option = Readonly<{
   id?: string | number;
-  // todo(flow->ts): React.ReactNode might be incorrect, but it works https://codesandbox.io/s/base-web-select-forked-kfzx07?file=/src/example.js
+  // TODO (flow->ts) React.ReactNode might be incorrect, but it works https://codesandbox.io/s/base-web-select-forked-kfzx07?file=/src/example.js
   label?: React.ReactNode;
   disabled?: boolean;
   clearableValue?: boolean;
   isCreatable?: boolean;
   __optgroup?: string;
-  // todo(flow->ts): probably this should be deleted, but that will require to clarify other types
+  // TODO (flow->ts) probably this should be deleted, but that will require to clarify other types
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any;
 }>;
