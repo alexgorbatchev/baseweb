@@ -36,9 +36,7 @@ test.describe('PhoneInput', () => {
   });
 
   test('check that a user can select a country from the dropdown \
-  which populates a dial code in the input', async ({
-    page,
-  }) => {
+  which populates a dial code in the input', async ({ page }) => {
     // click select
     await page.click(selectors.countryPicker);
     // verify dropdown is open

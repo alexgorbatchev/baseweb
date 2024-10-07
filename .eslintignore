@@ -14,3 +14,7 @@ out
 packages/eslint-plugin-baseui/__tests__/example-config
 __artifacts__
 packages/baseweb-vscode-extension
+playwright-report
+
+# this file shouldn't be edited
+documentation-site/next-env.d.ts
