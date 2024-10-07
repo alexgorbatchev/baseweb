@@ -746,7 +746,6 @@ class Select extends React.Component<SelectProps, SelectState> {
           {...sharedProps}
           {...inputContainerProps}
         >
-          {/* $FlowExpectedError[cannot-spread-inexact] */}
           <input
             aria-hidden
             // @ts-ignore
@@ -760,12 +759,7 @@ class Select extends React.Component<SelectProps, SelectState> {
               padding: 0,
             }}
             tabIndex={-1}
-            {...(overrides.Input
-              ? overrides.Input.props
-                ? // $FlowExpectedError[not-an-object]
-                  overrides.Input.props
-                : {}
-              : {})}
+            {...(overrides.Input ? (overrides.Input.props ? overrides.Input.props : {}) : {})}
           />
         </InputContainer>
       );

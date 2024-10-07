@@ -48,7 +48,6 @@ const TreeLabel: ComponentType<TreeLabelProps> = ({
   const LeafIcon = getOverride(LeafIconOverride) || BlankIcon;
   const TreeItemContent = getOverride(TreeItemContentOverride) || StyledItemContent;
   return (
-    // $FlowExpectedError[cannot-spread-inexact]
     <TreeItemContent {...sharedProps} {...props}>
       {hasChildren && (
         <IconContainer {...sharedProps} {...getOverrideProps(IconContainerOverride)}>

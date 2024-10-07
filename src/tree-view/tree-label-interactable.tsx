@@ -20,7 +20,6 @@ const TreeLabelInteractable: ComponentType<
 > = ({ overrides = {}, ...props }) => {
   const LabelInteractable = getOverride(overrides.LabelInteractable) || StyledLabelInteractable;
   return (
-    // $FlowExpectedError[cannot-spread-inexact]
     <LabelInteractable
       // @ts-ignore
       onClick={(e) => e.stopPropagation()}

@@ -26,7 +26,6 @@ const overrides = {
 
 const ModalButton = React.forwardRef<HTMLButtonElement, ComponentProps<typeof Button>>(
   (props, ref) => (
-    //$FlowExpectedError[cannot-spread-inexact]
     <Button ref={ref} {...props} overrides={mergeOverrides(overrides, props.overrides)} />
   )
 );

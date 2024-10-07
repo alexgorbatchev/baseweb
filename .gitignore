@@ -25,6 +25,5 @@ public
 versions.json
 __artifacts__
 test-results
-# Local Netlify folder
 .netlify
 playwright-report 

@@ -19,7 +19,6 @@ export default class StatefulMenu extends React.PureComponent<StatefulMenuProps>
     return (
       <NestedMenuContext.Consumer>
         {(ctx) => (
-          //$FlowExpectedError[cannot-spread-inexact]
           <StatefulContainer {...ctx} {...props}>
             {(renderProps) => <Menu {...renderProps} overrides={overrides} />}
           </StatefulContainer>

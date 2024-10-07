@@ -123,7 +123,6 @@ class PaymentCard extends React.Component<PaymentCardProps> {
     return (
       <ThemeContext.Consumer>
         {(theme) => (
-          //$FlowExpectedError[cannot-spread-inexact]
           <Input
             size={size}
             aria-label={ariaLabel}
