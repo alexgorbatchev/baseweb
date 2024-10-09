@@ -7,9 +7,8 @@ LICENSE file in the root directory of this source tree.
 
 /* eslint-env node */
 module.exports = {
-  parser: 'babel-eslint',
+  // parser: 'babel-eslint',
   plugins: [
-    'flowtype',
     'eslint-plugin-react',
     'eslint-plugin-import',
     'header',
@@ -73,7 +72,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.ts', '**/*.tsx', '**/*.d.ts'],
+      files: ['**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.d.ts'],
       parser: '@typescript-eslint/parser',
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
