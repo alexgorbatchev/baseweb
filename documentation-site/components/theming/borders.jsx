@@ -6,12 +6,9 @@ LICENSE file in the root directory of this source tree.
 */
 //
 
-import * as React from "react";
-import { useStyletron } from "baseui";
-import {
-  Property,
-  PropertyCompareTheme,
-} from "./common.jsx";
+import * as React from 'react';
+import { useStyletron } from 'baseui';
+import { Property, PropertyCompareTheme } from './common.jsx';
 
 export function Border({ name }) {
   const [css] = useStyletron();
@@ -30,9 +27,8 @@ export function Border({ name }) {
       renderValue={({ previewTheme }) => (
         <pre
           className={css({
-            fontSize: "12px",
-            fontFamily:
-              'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;',
+            fontSize: '12px',
+            fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;',
           })}
         >
           {`{
@@ -57,8 +53,8 @@ export function Radius({ name }) {
           className={css({
             backgroundColor: theme.colors.contentPrimary,
             borderRadius: theme.borders[name],
-            height: "50px",
-            width: "50px",
+            height: '50px',
+            width: '50px',
           })}
         ></div>
       )}

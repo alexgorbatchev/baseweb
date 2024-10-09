@@ -6,9 +6,9 @@ LICENSE file in the root directory of this source tree.
 */
 //
 
-import * as React from "react";
-import { useStyletron } from "baseui";
-import { Property } from "./common.jsx";
+import * as React from 'react';
+import { useStyletron } from 'baseui';
+import { Property } from './common.jsx';
 
 export function Sizing({ name }) {
   const [css, theme] = useStyletron();

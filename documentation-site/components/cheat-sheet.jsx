@@ -8,17 +8,17 @@ LICENSE file in the root directory of this source tree.
 //
 /* global process document */
 
-import React from "react";
-import { useRouter } from "next/router";
-import { useStyletron } from "baseui";
-import { StyledLink } from "baseui/link";
-import outlines from "../cheat-sheet.jsx";
-import { H2 } from "./markdown-elements.jsx";
-import { trackEvent } from "../helpers/ga";
+import React from 'react';
+import { useRouter } from 'next/router';
+import { useStyletron } from 'baseui';
+import { StyledLink } from 'baseui/link';
+import outlines from '../cheat-sheet.jsx';
+import { H2 } from './markdown-elements.jsx';
+import { trackEvent } from '../helpers/ga';
 
 function buildHref(file, line) {
-  const commit = process.env.COMMIT_REF || "master";
-  const base = "https://github.com/uber/baseweb/blob";
+  const commit = process.env.COMMIT_REF || 'master';
+  const base = 'https://github.com/uber/baseweb/blob';
   const href = `${base}/${commit}/${file}`;
 
   if (line) {
@@ -33,9 +33,7 @@ function CheatSheet() {
 
   React.useEffect(() => {
     if (query.component) {
-      const element = document.getElementById(
-        query.component
-      );
+      const element = document.getElementById(query.component);
       if (element) {
         setTimeout((el) => el.scrollIntoView(), 0, element);
       }
@@ -46,19 +44,14 @@ function CheatSheet() {
     <div>
       {!outlines.length && <p>no data to display</p>}
       {outlines.map((outline) => {
-        const componentName = outline.file.split("/")[1];
+        const componentName = outline.file.split('/')[1];
         return (
           <div key={outline.file}>
             <H2 id={componentName}>
               <StyledLink
                 target="_blank"
                 href={buildHref(outline.file)}
-                onClick={() =>
-                  trackEvent(
-                    "cheat_sheet_click",
-                    componentName
-                  )
-                }
+                onClick={() => trackEvent('cheat_sheet_click', componentName)}
               >
                 {componentName}
               </StyledLink>
@@ -66,8 +59,8 @@ function CheatSheet() {
             <ul
               className={css({
                 columnCount: 1,
-                "@media screen and (min-width: 920px)": {
-                  gridTemplateColumns: "repeat(3, 1fr)",
+                '@media screen and (min-width: 920px)': {
+                  gridTemplateColumns: 'repeat(3, 1fr)',
                   columnCount: 3,
                 },
               })}
@@ -81,16 +74,8 @@ function CheatSheet() {
                   >
                     <StyledLink
                       target="_blank"
-                      href={buildHref(
-                        outline.file,
-                        t.lineStart
-                      )}
-                      onClick={() =>
-                        trackEvent(
-                          "cheat_sheet_click",
-                          `${componentName}_${t.name}`
-                        )
-                      }
+                      href={buildHref(outline.file, t.lineStart)}
+                      onClick={() => trackEvent('cheat_sheet_click', `${componentName}_${t.name}`)}
                     >
                       {t.name}
                     </StyledLink>
@@ -100,21 +85,15 @@ function CheatSheet() {
                       key={idx}
                       className={css({
                         ...theme.typography.font300,
-                        paddingLeft: "12px",
-                        listStyleType: "none",
+                        paddingLeft: '12px',
+                        listStyleType: 'none',
                       })}
                     >
                       <StyledLink
                         target="_blank"
-                        href={buildHref(
-                          outline.file,
-                          c.lineStart
-                        )}
+                        href={buildHref(outline.file, c.lineStart)}
                         onClick={() =>
-                          trackEvent(
-                            "cheat_sheet_click",
-                            `${componentName}_${t.name}_${c.name}`
-                          )
+                          trackEvent('cheat_sheet_click', `${componentName}_${t.name}_${c.name}`)
                         }
                       >
                         {c.name}

@@ -6,16 +6,13 @@ LICENSE file in the root directory of this source tree.
 */
 //
 
-import * as React from "react";
-import {
-  useStyletron,
-  expandBorderStyles,
-} from "baseui/styles";
-import { colors } from "baseui/tokens";
-import { PropertyCompareTheme } from "./common.jsx";
+import * as React from 'react';
+import { useStyletron, expandBorderStyles } from 'baseui/styles';
+import { colors } from 'baseui/tokens';
+import { PropertyCompareTheme } from './common.jsx';
 
 function getTokenFromCode(code) {
-  let res = "";
+  let res = '';
   Object.entries(colors).forEach(([name, value]) => {
     if (value === code) res = name;
   });
@@ -32,9 +29,7 @@ export function Color({ name }) {
         <div
           className={css({
             ...commonStyles,
-            ...expandBorderStyles(
-              previewTheme.borders.border600
-            ),
+            ...expandBorderStyles(previewTheme.borders.border600),
             backgroundColor: previewTheme.colors[name],
           })}
         ></div>
@@ -42,9 +37,7 @@ export function Color({ name }) {
       renderValue={({ previewTheme }) => (
         <React.Fragment>
           <div>{previewTheme.colors[name]}</div>
-          <div>
-            {getTokenFromCode(previewTheme.colors[name])}
-          </div>
+          <div>{getTokenFromCode(previewTheme.colors[name])}</div>
         </React.Fragment>
       )}
     />

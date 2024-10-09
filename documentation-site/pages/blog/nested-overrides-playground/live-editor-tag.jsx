@@ -5,16 +5,16 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 //
-import * as React from "react";
-import Yard from "../../../components/yard/index";
-import { Tag, KIND, VARIANT, SIZE } from "baseui/tag";
-import { PropTypes } from "react-view";
+import * as React from 'react';
+import Yard from '../../../components/yard/index';
+import { Tag, KIND, VARIANT, SIZE } from 'baseui/tag';
+import { PropTypes } from 'react-view';
 
 const tagYardConfig = {
-  componentName: "Tag",
+  componentName: 'Tag',
   imports: {
-    "baseui/tag": {
-      named: ["Tag"],
+    'baseui/tag': {
+      named: ['Tag'],
     },
   },
   scope: {
@@ -24,58 +24,58 @@ const tagYardConfig = {
     SIZE,
   },
   theme: [
-    "tagFontDisabledRampUnit",
-    "tagSolidFontRampUnit",
-    "tagSolidRampUnit",
-    "tagOutlinedHoverRampUnit",
-    "tagOutlinedFontRampUnit",
-    "tagOutlinedRampUnit",
+    'tagFontDisabledRampUnit',
+    'tagSolidFontRampUnit',
+    'tagSolidRampUnit',
+    'tagOutlinedHoverRampUnit',
+    'tagOutlinedFontRampUnit',
+    'tagOutlinedRampUnit',
 
-    "tagNeutralFontDisabled",
-    "tagNeutralOutlinedDisabled",
-    "tagNeutralSolidFont",
-    "tagNeutralSolidBackground",
-    "tagNeutralOutlinedBackground",
-    "tagNeutralOutlinedFont",
+    'tagNeutralFontDisabled',
+    'tagNeutralOutlinedDisabled',
+    'tagNeutralSolidFont',
+    'tagNeutralSolidBackground',
+    'tagNeutralOutlinedBackground',
+    'tagNeutralOutlinedFont',
 
-    "tagPrimaryFontDisabled",
-    "tagPrimaryOutlinedDisabled",
-    "tagPrimarySolidFont",
-    "tagPrimarySolidBackground",
-    "tagPrimaryOutlinedBackground",
-    "tagPrimaryOutlinedFont",
+    'tagPrimaryFontDisabled',
+    'tagPrimaryOutlinedDisabled',
+    'tagPrimarySolidFont',
+    'tagPrimarySolidBackground',
+    'tagPrimaryOutlinedBackground',
+    'tagPrimaryOutlinedFont',
 
-    "tagAccentFontDisabled",
-    "tagAccentOutlinedDisabled",
-    "tagAccentSolidFont",
-    "tagAccentSolidBackground",
-    "tagAccentOutlinedBackground",
-    "tagAccentOutlinedFont",
+    'tagAccentFontDisabled',
+    'tagAccentOutlinedDisabled',
+    'tagAccentSolidFont',
+    'tagAccentSolidBackground',
+    'tagAccentOutlinedBackground',
+    'tagAccentOutlinedFont',
 
-    "tagPositiveFontDisabled",
-    "tagPositiveOutlinedDisabled",
-    "tagPositiveSolidFont",
-    "tagPositiveSolidBackground",
-    "tagPositiveOutlinedBackground",
-    "tagPositiveOutlinedFont",
+    'tagPositiveFontDisabled',
+    'tagPositiveOutlinedDisabled',
+    'tagPositiveSolidFont',
+    'tagPositiveSolidBackground',
+    'tagPositiveOutlinedBackground',
+    'tagPositiveOutlinedFont',
 
-    "tagNegativeFontDisabled",
-    "tagNegativeOutlinedDisabled",
-    "tagNegativeSolidFont",
-    "tagNegativeSolidBackground",
-    "tagNegativeOutlinedBackground",
-    "tagNegativeOutlinedFont",
+    'tagNegativeFontDisabled',
+    'tagNegativeOutlinedDisabled',
+    'tagNegativeSolidFont',
+    'tagNegativeSolidBackground',
+    'tagNegativeOutlinedBackground',
+    'tagNegativeOutlinedFont',
 
-    "tagWarningFontDisabled",
-    "tagWarningOutlinedDisabled",
-    "tagWarningSolidFont",
-    "tagWarningSolidBackground",
-    "tagWarningOutlinedBackground",
-    "tagWarningOutlinedFont",
+    'tagWarningFontDisabled',
+    'tagWarningOutlinedDisabled',
+    'tagWarningSolidFont',
+    'tagWarningSolidBackground',
+    'tagWarningOutlinedBackground',
+    'tagWarningOutlinedFont',
   ],
   props: {
     children: {
-      value: "this is a tag",
+      value: 'this is a tag',
       type: PropTypes.ReactNode,
       description: `Visible label.`,
     },
@@ -98,15 +98,15 @@ const tagYardConfig = {
       description: `Include or exclude the "x" button and click action.`,
     },
     kind: {
-      value: "KIND.primary",
-      defaultValue: "KIND.primary",
+      value: 'KIND.primary',
+      defaultValue: 'KIND.primary',
       options: KIND,
       type: PropTypes.Enum,
       description:
-        "Defines tags look by purpose. Set it to one of KIND[key] values. Defaults to KIND.primary.",
+        'Defines tags look by purpose. Set it to one of KIND[key] values. Defaults to KIND.primary.',
       imports: {
-        "baseui/tag": {
-          named: ["KIND"],
+        'baseui/tag': {
+          named: ['KIND'],
         },
       },
     },
@@ -116,27 +116,27 @@ const tagYardConfig = {
       description: `The color theme to be applied to a Tag. To make this custom color active, you have to set kind to custom.`,
     },
     variant: {
-      value: "VARIANT.light",
-      defaultValue: "VARIANT.light",
+      value: 'VARIANT.light',
+      defaultValue: 'VARIANT.light',
       options: VARIANT,
       type: PropTypes.Enum,
       description:
-        "Defines tags look. Set it to one of VARIANT[key] values. Defaults to VARIANT.light.",
+        'Defines tags look. Set it to one of VARIANT[key] values. Defaults to VARIANT.light.',
       imports: {
-        "baseui/tag": {
-          named: ["VARIANT"],
+        'baseui/tag': {
+          named: ['VARIANT'],
         },
       },
     },
     size: {
-      value: "SIZE.small",
-      defaultValue: "SIZE.small",
+      value: 'SIZE.small',
+      defaultValue: 'SIZE.small',
       options: SIZE,
       type: PropTypes.Enum,
-      description: "Determines how large the Tag will be.",
+      description: 'Determines how large the Tag will be.',
       imports: {
-        "baseui/tag": {
-          named: ["SIZE"],
+        'baseui/tag': {
+          named: ['SIZE'],
         },
       },
     },
@@ -169,31 +169,29 @@ const tagYardConfig = {
       value: {
         Text: {
           active: true,
-          style:
-            "({ $theme }) => ({\n  color: $theme.colors.accent,\n})",
+          style: '({ $theme }) => ({\n  color: $theme.colors.accent,\n})',
         },
       },
       type: PropTypes.Custom,
-      description:
-        "Lets you customize all aspects of the component.",
+      description: 'Lets you customize all aspects of the component.',
       custom: {
-        names: ["Root", "Action", "ActionIcon", "Text"],
+        names: ['Root', 'Action', 'ActionIcon', 'Text'],
         sharedProps: {
-          $kind: "kind",
-          $variant: "variant",
-          $closeable: "closeable",
+          $kind: 'kind',
+          $variant: 'variant',
+          $closeable: 'closeable',
           $isActive: {
             type: PropTypes.Boolean,
-            description: "Is tag active.",
+            description: 'Is tag active.',
           },
-          $disabled: "disabled",
+          $disabled: 'disabled',
           $isHovered: {
             type: PropTypes.Boolean,
-            description: "Is tag hovered.",
+            description: 'Is tag hovered.',
           },
           $isFocused: {
             type: PropTypes.Boolean,
-            description: "Is tag focused.",
+            description: 'Is tag focused.',
           },
         },
       },
@@ -202,13 +200,7 @@ const tagYardConfig = {
 };
 
 function LiveEditorTag() {
-  return (
-    <Yard
-      placeholderHeight={34}
-      {...tagYardConfig}
-      initialTab="1"
-    />
-  );
+  return <Yard placeholderHeight={34} {...tagYardConfig} initialTab="1" />;
 }
 
 export default LiveEditorTag;

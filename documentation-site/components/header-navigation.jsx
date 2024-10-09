@@ -6,60 +6,53 @@ LICENSE file in the root directory of this source tree.
 */
 //
 
-import * as React from "react";
-import Link from "next/link";
-import { themedUseStyletron as useStyletron } from "../pages/_app";
-import Menu from "baseui/icon/menu";
-import DarkLogo from "../images/base-web.svg";
-import LightLogo from "../images/base-web-white.svg";
-import GithubLogo from "./github-logo";
-import SlackLogo from "./slack-logo";
-import AlignLeftIcon from "./align-left-icon";
-import AlignRightIcon from "./align-right-icon";
-import VersionSelector from "./version-selector.jsx";
-import Search from "./search";
-import Bulb from "./bulb";
-import { Button, KIND, SIZE, SHAPE } from "baseui/button";
+import * as React from 'react';
+import Link from 'next/link';
+import { themedUseStyletron as useStyletron } from '../pages/_app';
+import Menu from 'baseui/icon/menu';
+import DarkLogo from '../images/base-web.svg';
+import LightLogo from '../images/base-web-white.svg';
+import GithubLogo from './github-logo';
+import SlackLogo from './slack-logo';
+import AlignLeftIcon from './align-left-icon';
+import AlignRightIcon from './align-right-icon';
+import VersionSelector from './version-selector.jsx';
+import Search from './search';
+import Bulb from './bulb';
+import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 
 // Breakpoint for un-wrapping the search bar from under the links and toggles.
 const WRAP_SEARCH = 715;
 
-const mq = (breakpoint) =>
-  `@media screen and (min-width: ${breakpoint}px)`;
+const mq = (breakpoint) => `@media screen and (min-width: ${breakpoint}px)`;
 
-export default function HeaderNavigation({
-  toggleSidebar,
-  toggleTheme,
-  toggleDirection,
-}) {
+export default function HeaderNavigation({ toggleSidebar, toggleTheme, toggleDirection }) {
   const [css, theme] = useStyletron();
   return (
     <header
       className={css({
         ...theme.typography.ParagraphMedium,
-        display: "flex",
-        flexWrap: "wrap",
+        display: 'flex',
+        flexWrap: 'wrap',
         paddingTop: theme.sizing.scale500,
         paddingBottom: theme.sizing.scale500,
         paddingLeft: theme.sizing.scale800,
         paddingRight: theme.sizing.scale800,
-        borderBottomStyle: "solid",
-        borderBottomWidth: "1px",
+        borderBottomStyle: 'solid',
+        borderBottomWidth: '1px',
         borderBottomColor: theme.colors.borderOpaque,
         [mq(WRAP_SEARCH)]: {
-          flexWrap: "nowrap",
+          flexWrap: 'nowrap',
         },
       })}
     >
       {/* Logo & Links  */}
       <div
         className={css({
-          marginLeft:
-            theme.direction === "rtl" ? "auto" : "none",
-          marginRight:
-            theme.direction === "rtl" ? "none" : "auto",
-          display: "flex",
-          alignItems: "center",
+          marginLeft: theme.direction === 'rtl' ? 'auto' : 'none',
+          marginRight: theme.direction === 'rtl' ? 'none' : 'auto',
+          display: 'flex',
+          alignItems: 'center',
           order: 1,
         })}
       >
@@ -68,27 +61,17 @@ export default function HeaderNavigation({
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             className={css({
-              display: "flex",
-              marginLeft:
-                theme.direction === "rtl"
-                  ? theme.sizing.scale400
-                  : "none",
-              marginRight:
-                theme.direction === "rtl"
-                  ? "none"
-                  : theme.sizing.scale400,
-              ":focus": {
+              display: 'flex',
+              marginLeft: theme.direction === 'rtl' ? theme.sizing.scale400 : 'none',
+              marginRight: theme.direction === 'rtl' ? 'none' : theme.sizing.scale400,
+              ':focus': {
                 outline: `3px solid ${theme.colors.accent}`,
-                outlineOffset: "5px",
+                outlineOffset: '5px',
               },
             })}
           >
             <img
-              src={
-                theme.name.startsWith("dark")
-                  ? LightLogo
-                  : DarkLogo
-              }
+              src={theme.name.startsWith('dark') ? LightLogo : DarkLogo}
               alt="Base Web"
               height="40px"
               width="97px"
@@ -98,9 +81,9 @@ export default function HeaderNavigation({
         {/* Version Selector */}
         <div
           className={css({
-            display: "none",
+            display: 'none',
             [mq(400)]: {
-              display: "block",
+              display: 'block',
             },
           })}
         >
@@ -115,9 +98,9 @@ export default function HeaderNavigation({
             overrides={{
               BaseButton: {
                 style: {
-                  display: "none",
+                  display: 'none',
                   [mq(1000)]: {
-                    display: "block",
+                    display: 'block',
                   },
                 },
               },
@@ -135,9 +118,9 @@ export default function HeaderNavigation({
             overrides={{
               BaseButton: {
                 style: {
-                  display: "none",
+                  display: 'none',
                   [mq(1000)]: {
-                    display: "block",
+                    display: 'block',
                   },
                 },
               },
@@ -151,21 +134,15 @@ export default function HeaderNavigation({
       {/* Search */}
       <div
         className={css({
-          flexBasis: "100%",
+          flexBasis: '100%',
           order: 3,
           marginTop: theme.sizing.scale400,
           [mq(WRAP_SEARCH)]: {
-            flexBasis: "auto",
+            flexBasis: 'auto',
             order: 2,
-            marginTop: "0",
-            marginLeft:
-              theme.direction === "rtl"
-                ? theme.sizing.scale400
-                : "none",
-            marginRight:
-              theme.direction === "rtl"
-                ? "none"
-                : theme.sizing.scale400,
+            marginTop: '0',
+            marginLeft: theme.direction === 'rtl' ? theme.sizing.scale400 : 'none',
+            marginRight: theme.direction === 'rtl' ? 'none' : theme.sizing.scale400,
           },
         })}
       >
@@ -175,8 +152,8 @@ export default function HeaderNavigation({
       {/* Toggles & Links */}
       <div
         className={css({
-          display: "flex",
-          alignItems: "center",
+          display: 'flex',
+          alignItems: 'center',
           order: 2,
           [mq(WRAP_SEARCH)]: {
             order: 3,
@@ -196,18 +173,15 @@ export default function HeaderNavigation({
           overrides={{
             BaseButton: {
               style: {
-                display: "none",
+                display: 'none',
                 [mq(500)]: {
-                  display: "flex",
+                  display: 'flex',
                 },
               },
             },
           }}
         >
-          <SlackLogo
-            size={24}
-            color={theme.colors.contentPrimary}
-          />
+          <SlackLogo size={24} color={theme.colors.contentPrimary} />
         </Button>
 
         {/* GitHub */}
@@ -223,18 +197,15 @@ export default function HeaderNavigation({
           overrides={{
             BaseButton: {
               style: {
-                display: "none",
+                display: 'none',
                 [mq(400)]: {
-                  display: "flex",
+                  display: 'flex',
                 },
               },
             },
           }}
         >
-          <GithubLogo
-            size={24}
-            color={theme.colors.contentPrimary}
-          />
+          <GithubLogo size={24} color={theme.colors.contentPrimary} />
         </Button>
 
         {/* Direction Toggle */}
@@ -247,24 +218,18 @@ export default function HeaderNavigation({
           overrides={{
             BaseButton: {
               style: {
-                display: "none",
+                display: 'none',
                 [mq(450)]: {
-                  display: "flex",
+                  display: 'flex',
                 },
               },
             },
           }}
         >
-          {theme.direction === "rtl" ? (
-            <AlignLeftIcon
-              size={24}
-              color={theme.colors.contentPrimary}
-            />
+          {theme.direction === 'rtl' ? (
+            <AlignLeftIcon size={24} color={theme.colors.contentPrimary} />
           ) : (
-            <AlignRightIcon
-              size={24}
-              color={theme.colors.contentPrimary}
-            />
+            <AlignRightIcon size={24} color={theme.colors.contentPrimary} />
           )}
         </Button>
 
@@ -278,15 +243,12 @@ export default function HeaderNavigation({
           overrides={{
             BaseButton: {
               style: {
-                display: "flex",
+                display: 'flex',
               },
             },
           }}
         >
-          <Bulb
-            size={24}
-            color={theme.colors.contentPrimary}
-          />
+          <Bulb size={24} color={theme.colors.contentPrimary} />
         </Button>
 
         {/* Nav Toggle */}
@@ -299,18 +261,15 @@ export default function HeaderNavigation({
           overrides={{
             BaseButton: {
               style: {
-                display: "flex",
+                display: 'flex',
                 [theme.mediaQuery.medium]: {
-                  display: "none",
+                  display: 'none',
                 },
               },
             },
           }}
         >
-          <Menu
-            size={24}
-            color={theme.colors.contentPrimary}
-          />
+          <Menu size={24} color={theme.colors.contentPrimary} />
         </Button>
       </div>
     </header>

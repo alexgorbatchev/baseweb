@@ -5,18 +5,13 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 
-import * as React from "react";
-import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from "next/document";
-import { Provider as StyletronProvider } from "styletron-react";
+import * as React from 'react';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { Provider as StyletronProvider } from 'styletron-react';
 
-import Favicons from "../components/meta-favicons";
-import { styletron } from "../helpers/styletron";
-import { GA_ID } from "../helpers/ga";
+import Favicons from '../components/meta-favicons';
+import { styletron } from '../helpers/styletron';
+import { GA_ID } from '../helpers/ga';
 
 export default class MyDocument extends Document {
   static async getInitialProps(context) {
@@ -31,8 +26,7 @@ export default class MyDocument extends Document {
       });
     const stylesheets = styletron.getStylesheets() || [];
 
-    const isProduction =
-      process.env.NODE_ENV === "production";
+    const isProduction = process.env.NODE_ENV === 'production';
 
     const initialProps = await Document.getInitialProps({
       ...context,
@@ -77,7 +71,7 @@ export default class MyDocument extends Document {
                 __html: sheet.css,
               }}
               media={sheet.attrs.media}
-              data-hydrate={sheet.attrs["data-hydrate"]}
+              data-hydrate={sheet.attrs['data-hydrate']}
               key={i}
             />
           ))}
@@ -119,16 +113,9 @@ export default class MyDocument extends Document {
           <NextScript />
           {this.props.isProduction && (
             <React.Fragment>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              />
-              <script
-                dangerouslySetInnerHTML={this.setGoogleTags()}
-              />
-              <script
-                dangerouslySetInnerHTML={this.initDelighted()}
-              />
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+              <script dangerouslySetInnerHTML={this.setGoogleTags()} />
+              <script dangerouslySetInnerHTML={this.initDelighted()} />
             </React.Fragment>
           )}
         </body>

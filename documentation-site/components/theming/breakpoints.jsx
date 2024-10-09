@@ -6,19 +6,17 @@ LICENSE file in the root directory of this source tree.
 */
 //
 
-import * as React from "react";
-import { LightTheme } from "baseui";
-import { Property } from "./common.jsx";
+import * as React from 'react';
+import { LightTheme } from 'baseui';
+import { Property } from './common.jsx';
 
 export function Breakpoint({ name, media = false }) {
   return (
     <Property
       name={name}
-      concern={media ? "mediaQuery" : "breakpoints"}
+      concern={media ? 'mediaQuery' : 'breakpoints'}
       renderValue={() =>
-        media
-          ? LightTheme.mediaQuery[name]
-          : LightTheme.breakpoints[name] + "px"
+        media ? LightTheme.mediaQuery[name] : LightTheme.breakpoints[name] + 'px'
       }
     />
   );

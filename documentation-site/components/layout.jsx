@@ -6,23 +6,22 @@ LICENSE file in the root directory of this source tree.
 */
 //
 
-import * as React from "react";
-import { MDXProvider } from "@mdx-js/tag";
-import { Block } from "baseui/block";
-import { Button, KIND, SIZE } from "baseui/button";
-import TableOfContents from "./table-of-contents";
-import { themedStyled } from "../pages/_app";
-import MarkdownElements from "./markdown-elements";
-import Sidebar from "./sidebar";
-import HeaderNavigation from "./header-navigation";
-import Footer from "./footer";
-import PencilIcon from "./pencil-icon";
-import Routes from "../routes";
-import DirectionContext from "../components/direction-context";
-import SkipToContent from "./skip-to-content";
+import * as React from 'react';
+import { MDXProvider } from '@mdx-js/tag';
+import { Block } from 'baseui/block';
+import { Button, KIND, SIZE } from 'baseui/button';
+import TableOfContents from './table-of-contents';
+import { themedStyled } from '../pages/_app';
+import MarkdownElements from './markdown-elements';
+import Sidebar from './sidebar';
+import HeaderNavigation from './header-navigation';
+import Footer from './footer';
+import PencilIcon from './pencil-icon';
+import Routes from '../routes';
+import DirectionContext from '../components/direction-context';
+import SkipToContent from './skip-to-content';
 
-const GH_URL =
-  "https://github.com/uber/baseweb/edit/master/documentation-site/pages";
+const GH_URL = 'https://github.com/uber/baseweb/edit/master/documentation-site/pages';
 
 function findByPath(o, path) {
   if (!path) return;
@@ -31,7 +30,7 @@ function findByPath(o, path) {
   }
   var result, p;
   for (p in o) {
-    if (o[p] && typeof o[p] === "object") {
+    if (o[p] && typeof o[p] === 'object') {
       result = findByPath(o[p], path);
       if (result) {
         return result;
@@ -41,45 +40,39 @@ function findByPath(o, path) {
   return result;
 }
 
-const TOCWrapper = themedStyled("div", ({ $theme }) => ({
-  display: "none",
-  "@media screen and (min-width: 1340px)": {
-    display: "block",
-    maxWidth: "16em",
+const TOCWrapper = themedStyled('div', ({ $theme }) => ({
+  display: 'none',
+  '@media screen and (min-width: 1340px)': {
+    display: 'block',
+    maxWidth: '16em',
   },
 }));
 
-const SidebarWrapper = themedStyled(
-  "nav",
-  ({ $theme, $isOpen, $hideSideNavigation }) => ({
-    display: $isOpen ? "block" : "none",
-    paddingTop: $theme.sizing.scale700,
-    marginLeft: $theme.sizing.scale800,
-    marginRight: $theme.sizing.scale800,
-    [$theme.mediaQuery.medium]: {
-      display: $hideSideNavigation ? "none" : "block",
-      maxWidth: "16em",
-    },
-  })
-);
+const SidebarWrapper = themedStyled('nav', ({ $theme, $isOpen, $hideSideNavigation }) => ({
+  display: $isOpen ? 'block' : 'none',
+  paddingTop: $theme.sizing.scale700,
+  marginLeft: $theme.sizing.scale800,
+  marginRight: $theme.sizing.scale800,
+  [$theme.mediaQuery.medium]: {
+    display: $hideSideNavigation ? 'none' : 'block',
+    maxWidth: '16em',
+  },
+}));
 
-const ContentWrapper = themedStyled(
-  "main",
-  ({ $theme, $isSidebarOpen, $maxWidth }) => ({
-    position: "relative",
-    boxSizing: "border-box",
-    display: $isSidebarOpen ? "none" : "block",
-    paddingLeft: $theme.sizing.scale800,
-    paddingRight: $theme.sizing.scale800,
-    width: "100%",
-    outline: "none",
-    maxWidth: $maxWidth ? $maxWidth : "40em",
-    [$theme.mediaQuery.medium]: {
-      display: "block",
-      maxWidth: $maxWidth ? $maxWidth : "40em",
-    },
-  })
-);
+const ContentWrapper = themedStyled('main', ({ $theme, $isSidebarOpen, $maxWidth }) => ({
+  position: 'relative',
+  boxSizing: 'border-box',
+  display: $isSidebarOpen ? 'none' : 'block',
+  paddingLeft: $theme.sizing.scale800,
+  paddingRight: $theme.sizing.scale800,
+  width: '100%',
+  outline: 'none',
+  maxWidth: $maxWidth ? $maxWidth : '40em',
+  [$theme.mediaQuery.medium]: {
+    display: 'block',
+    maxWidth: $maxWidth ? $maxWidth : '40em',
+  },
+}));
 
 class Layout extends React.Component {
   constructor(props) {
@@ -90,14 +83,13 @@ class Layout extends React.Component {
   }
   render() {
     const { sidebarOpen } = this.state;
-    const { toggleTheme, toggleDirection, children } =
-      this.props;
-    let { path = "" } = this.props;
+    const { toggleTheme, toggleDirection, children } = this.props;
+    let { path = '' } = this.props;
 
     // strip the query string
-    path = path.split("?")[0];
+    path = path.split('?')[0];
 
-    if (path && path.endsWith("/")) {
+    if (path && path.endsWith('/')) {
       path = path.slice(0, -1);
     }
 
@@ -140,13 +132,8 @@ class Layout extends React.Component {
               <SidebarWrapper
                 aria-label="primary"
                 $isOpen={sidebarOpen}
-                $hideSideNavigation={
-                  !!this.props.hideSideNavigation
-                }
-                onClick={() =>
-                  sidebarOpen &&
-                  this.setState({ sidebarOpen: false })
-                }
+                $hideSideNavigation={!!this.props.hideSideNavigation}
+                onClick={() => sidebarOpen && this.setState({ sidebarOpen: false })}
               >
                 <Sidebar path={path} />
               </SidebarWrapper>
@@ -159,29 +146,20 @@ class Layout extends React.Component {
               >
                 {isGitHubEditDisabled ? null : (
                   <Block
-                    display={["none", "block"]}
+                    display={['none', 'block']}
                     position="absolute"
                     top="-10px"
                     overrides={{
                       Block: {
                         style: {
-                          [direction === "rtl"
-                            ? "left"
-                            : "right"]: 0,
-                          [direction === "rtl"
-                            ? "right"
-                            : "left"]: "auto",
+                          [direction === 'rtl' ? 'left' : 'right']: 0,
+                          [direction === 'rtl' ? 'right' : 'left']: 'auto',
                         },
                       },
                     }}
                   >
                     <Button
-                      startEnhancer={() => (
-                        <PencilIcon
-                          size={16}
-                          color="#666666"
-                        />
-                      )}
+                      startEnhancer={() => <PencilIcon size={16} color="#666666" />}
                       $as="a"
                       href={githubUrl}
                       target="_blank"
@@ -192,14 +170,10 @@ class Layout extends React.Component {
                     </Button>
                   </Block>
                 )}
-                <MDXProvider components={MarkdownElements}>
-                  {children}
-                </MDXProvider>
+                <MDXProvider components={MarkdownElements}>{children}</MDXProvider>
               </ContentWrapper>
               <TOCWrapper>
-                <TableOfContents
-                  content={React.Children.toArray(children)}
-                />
+                <TableOfContents content={React.Children.toArray(children)} />
               </TOCWrapper>
             </Block>
             <Footer />
