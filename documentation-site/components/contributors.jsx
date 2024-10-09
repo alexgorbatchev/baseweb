@@ -4,23 +4,16 @@ Copyright (c) Uber Technologies, Inc.
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
-//      
+//
 
 import * as React from 'react';
 import { Avatar } from 'baseui/avatar';
 import { Block } from 'baseui/block';
 import { H2 } from './markdown-elements';
 
-                    
-                     
-                   
-                
-                       
-  
-
 const isUser = (user) => user.type === 'User';
 
-function Contributors(props                                 ) {
+function Contributors(props) {
   if (!props.contributors.length) {
     return null;
   }

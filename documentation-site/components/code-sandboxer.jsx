@@ -7,9 +7,9 @@ LICENSE file in the root directory of this source tree.
 
 //
 
-import { finaliseCSB, sendFilesToCSB } from "codesandboxer";
-import packageJson from "../../package.json";
-import { trackEvent } from "../helpers/ga";
+import { finaliseCSB, sendFilesToCSB } from 'codesandboxer';
+import packageJson from '../../package.json';
+import { trackEvent } from '../helpers/ga';
 
 const html = `<div id="root" />`;
 const index = `
@@ -49,36 +49,31 @@ export async function deploy(
     const { parameters } = finaliseCSB(
       {
         files: {
-          "public/index.html": { content: html },
-          "src/index.tsx": { content: index },
-          "src/example.tsx": { content: source },
+          'public/index.html': { content: html },
+          'src/index.tsx': { content: index },
+          'src/example.tsx': { content: source },
         },
         deps: {
-          baseui: "latest",
-          react: "latest",
-          "react-dom": "latest",
-          "styletron-engine-atomic":
-            devDependencies["styletron-engine-atomic"],
-          "styletron-react":
-            devDependencies["styletron-react"],
-          "react-scripts": "latest",
+          baseui: 'latest',
+          react: 'latest',
+          'react-dom': 'latest',
+          'styletron-engine-atomic': devDependencies['styletron-engine-atomic'],
+          'styletron-react': devDependencies['styletron-react'],
+          'react-scripts': 'latest',
           ...additionalDependencies,
         },
       },
       {
-        fileName: "src/example.tsx",
+        fileName: 'src/example.tsx',
         name: title,
       }
     );
     const { sandboxId } = await sendFilesToCSB(parameters);
-    trackEvent("codesandbox_deployed", title);
+    trackEvent('codesandbox_deployed', title);
     return `https://codesandbox.io/s/${sandboxId}?module=src/example.tsx`;
   } catch (error) {
-    console.error(
-      "Failed to deploy code sandbox example:",
-      error
-    );
-    trackEvent("codesandbox_deployed_error", title);
+    console.error('Failed to deploy code sandbox example:', error);
+    trackEvent('codesandbox_deployed_error', title);
     return null;
   }
 }

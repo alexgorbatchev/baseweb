@@ -7,7 +7,6 @@ LICENSE file in the root directory of this source tree.
 
 /* eslint-env browser */
 
-//
 import * as React from 'react';
 import {
   createThemedStyled,
@@ -26,7 +25,7 @@ import { Provider as StyletronProvider } from 'styletron-react';
 import { Block } from 'baseui/block';
 import Router from 'next/router';
 
-import { styletron } from '../helpers/styletron';
+import { styletron, debug } from '../helpers/styletron';
 import { trackPageView } from '../helpers/ga';
 import DirectionContext from '../components/direction-context';
 

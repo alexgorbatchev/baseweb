@@ -4,7 +4,7 @@ Copyright (c) Uber Technologies, Inc.
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
-//      
+//
 
 import React from 'react';
 import { Block } from 'baseui/block';
@@ -22,21 +22,18 @@ const UberLogo = () => (
   </svg>
 );
 
-const StyledFooter = themedStyled    (
-  'footer',
-  ({ $theme: { typography, sizing, colors, name } }) => ({
-    ...typography.font300,
-    position: 'sticky',
-    bottom: 0,
-    color: colors.contentPrimary,
-    backgroundColor: colors.backgroundSecondary,
-    width: '100%',
-    marginTop: sizing.scale1400,
-    paddingTop: sizing.scale1600,
-    paddingBottom: sizing.scale1600,
-    textAlign: 'center',
-  })
-);
+const StyledFooter = themedStyled('footer', ({ $theme: { typography, sizing, colors, name } }) => ({
+  ...typography.font300,
+  position: 'sticky',
+  bottom: 0,
+  color: colors.contentPrimary,
+  backgroundColor: colors.backgroundSecondary,
+  width: '100%',
+  marginTop: sizing.scale1400,
+  paddingTop: sizing.scale1600,
+  paddingBottom: sizing.scale1600,
+  textAlign: 'center',
+}));
 
 const StyledLink = themedStyled('a', ({ $theme }) => ({
   textDecoration: 'none',
