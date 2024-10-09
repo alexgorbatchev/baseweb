@@ -11,36 +11,31 @@ LICENSE file in the root directory of this source tree.
  * properties and their default values.
  */
 
-import * as React from "react";
-import { useStyletron, styled } from "baseui";
-import { LightTheme, DarkTheme } from "baseui/themes";
+import * as React from 'react';
+import { useStyletron, styled } from 'baseui';
+import { LightTheme, DarkTheme } from 'baseui/themes';
 
-const SubTitle = styled("span", ({ $theme }) => {
+const SubTitle = styled('span', ({ $theme }) => {
   return {
     ...$theme.typography.MonoLabelSmall,
-    fontStyle: "italic",
+    fontStyle: 'italic',
     color: $theme.colors.contentSecondary,
   };
 });
 
-export const Title = styled("div", ({ $theme }) => {
+export const Title = styled('div', ({ $theme }) => {
   return {
     ...$theme.typography.MonoHeadingXSmall,
   };
 });
 
-export const Value = styled("div", ({ $theme }) => {
+export const Value = styled('div', ({ $theme }) => {
   return {
     ...$theme.typography.MonoParagraphSmall,
   };
 });
 
-export function Property({
-  name,
-  concern,
-  renderPreview,
-  renderValue,
-}) {
+export function Property({ name, concern, renderPreview, renderValue }) {
   const [css, theme] = useStyletron();
   return (
     <div
@@ -48,9 +43,7 @@ export function Property({
         marginBottom: theme.sizing.scale800,
       })}
     >
-      <Title
-        $style={{ marginBottom: theme.sizing.scale200 }}
-      >
+      <Title $style={{ marginBottom: theme.sizing.scale200 }}>
         <SubTitle>theme.{concern}.</SubTitle>
         {name}
       </Title>
@@ -68,12 +61,7 @@ export function Property({
   );
 }
 
-export function PropertyCompareTheme({
-  name,
-  concern,
-  renderBox,
-  renderValue,
-}) {
+export function PropertyCompareTheme({ name, concern, renderBox, renderValue }) {
   const [css] = useStyletron();
   return (
     <Property
@@ -81,35 +69,24 @@ export function PropertyCompareTheme({
       concern={concern}
       renderPreview={() => {
         return (
-          <div className={css({ display: "flex" })}>
-            <div className={css({ flexBasis: "50%" })}>
-              <Swatch
-                renderBox={renderBox}
-                previewTheme={LightTheme}
-                left
-              />
+          <div className={css({ display: 'flex' })}>
+            <div className={css({ flexBasis: '50%' })}>
+              <Swatch renderBox={renderBox} previewTheme={LightTheme} left />
             </div>
-            <div className={css({ flexBasis: "50%" })}>
-              <Swatch
-                renderBox={renderBox}
-                previewTheme={DarkTheme}
-              />
+            <div className={css({ flexBasis: '50%' })}>
+              <Swatch renderBox={renderBox} previewTheme={DarkTheme} />
             </div>
           </div>
         );
       }}
       renderValue={() => {
         return (
-          <div className={css({ display: "flex" })}>
-            <div className={css({ flexBasis: "50%" })}>
-              <Value>
-                {renderValue({ previewTheme: LightTheme })}
-              </Value>
+          <div className={css({ display: 'flex' })}>
+            <div className={css({ flexBasis: '50%' })}>
+              <Value>{renderValue({ previewTheme: LightTheme })}</Value>
             </div>
-            <div className={css({ flexBasis: "50%" })}>
-              <Value>
-                {renderValue({ previewTheme: DarkTheme })}
-              </Value>
+            <div className={css({ flexBasis: '50%' })}>
+              <Value>{renderValue({ previewTheme: DarkTheme })}</Value>
             </div>
           </div>
         );
@@ -123,20 +100,19 @@ function Swatch({ renderBox, previewTheme, left = false }) {
   return (
     <div
       className={css({
-        backgroundColor:
-          previewTheme.colors.backgroundPrimary,
+        backgroundColor: previewTheme.colors.backgroundPrimary,
         paddingTop: theme.sizing.scale800,
         paddingBottom: theme.sizing.scale800,
-        display: "flex",
-        justifyContent: "center",
-        borderTopStyle: "solid",
-        borderBottomStyle: "solid",
-        borderRightStyle: left ? null : "solid",
-        borderLeftStyle: left ? "solid" : null,
-        borderRightWidth: left ? null : "1px",
-        borderLeftWidth: left ? "1px" : null,
-        borderTopWidth: "1px",
-        borderBottomWidth: "1px",
+        display: 'flex',
+        justifyContent: 'center',
+        borderTopStyle: 'solid',
+        borderBottomStyle: 'solid',
+        borderRightStyle: left ? null : 'solid',
+        borderLeftStyle: left ? 'solid' : null,
+        borderRightWidth: left ? null : '1px',
+        borderLeftWidth: left ? '1px' : null,
+        borderTopWidth: '1px',
+        borderBottomWidth: '1px',
         borderTopColor: theme.colors.borderOpaque,
         borderBottomColor: theme.colors.borderOpaque,
         borderRightColor: theme.colors.borderOpaque,
@@ -145,7 +121,7 @@ function Swatch({ renderBox, previewTheme, left = false }) {
     >
       {renderBox({
         previewTheme,
-        commonStyles: { height: "50px", width: "50px" },
+        commonStyles: { height: '50px', width: '50px' },
       })}
     </div>
   );

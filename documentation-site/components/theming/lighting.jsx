@@ -6,9 +6,9 @@ LICENSE file in the root directory of this source tree.
 */
 //
 
-import * as React from "react";
-import { useStyletron } from "baseui";
-import { PropertyCompareTheme } from "./common.jsx";
+import * as React from 'react';
+import { useStyletron } from 'baseui';
+import { PropertyCompareTheme } from './common.jsx';
 
 export function Lighting({ name }) {
   const [css] = useStyletron();
@@ -24,9 +24,7 @@ export function Lighting({ name }) {
           })}
         ></div>
       )}
-      renderValue={({ previewTheme }) =>
-        previewTheme.lighting[name]
-      }
+      renderValue={({ previewTheme }) => previewTheme.lighting[name]}
     />
   );
 }
