@@ -6,7 +6,7 @@ LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
 
-import { StyledDay, StatefulDatepicker } from '..';
+import { StyledDay, StatefulDatepicker, type SharedStyleProps } from '..';
 
 export function Scenario() {
   return (
@@ -21,8 +21,9 @@ export function Scenario() {
       overrides={{
         Day: {
           // eslint-disable-next-line react/display-name
-          component: React.forwardRef((props, ref) => (
-            <StyledDay data-highlighted={props.$isHighlighted} {...props} ref={ref} />
+          component: React.forwardRef<typeof StyledDay, SharedStyleProps>((props, ref) => (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            <StyledDay data-highlighted={props.$isHighlighted} {...props} ref={ref as any} />
           )),
         },
 

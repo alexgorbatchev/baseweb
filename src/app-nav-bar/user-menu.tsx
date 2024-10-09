@@ -64,7 +64,8 @@ export default function UserMenuComponent(
       List: {
         // eslint-disable-next-line react/display-name
         component: React.forwardRef(({ children, ...restProps }, ref) => (
-          <StyledList {...restProps} ref={ref}>
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          <StyledList {...restProps} ref={ref as any}>
             <UserMenuProfileListItem {...userMenuProfileListItemProps}>
               {/* Replace with a renderer: renderUserProfileTile() */}
               <UserProfileTile
