@@ -15,6 +15,7 @@ export default function <C extends React.ComponentType>(Component: C, displayNam
       );
     }
 
+    // @ts-ignore
     return <Component {...props} ref={ref} />;
   });
   DeprecatedComponent.displayName = 'DeprecatedComponent';

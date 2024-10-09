@@ -91,8 +91,7 @@ type UseStyletronFn<Theme> = () => [(a: StyleObject) => string, Theme];
 
 export function createThemedUseStyletron<Theme>(): UseStyletronFn<Theme> {
   return function () {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const theme = React.useContext(ThemeContext) as any as Theme;
+    const theme = React.useContext(ThemeContext) as unknown as Theme;
     const [css] = styletronUseStyletron();
     return [css, theme];
   };

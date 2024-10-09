@@ -411,7 +411,7 @@ type BaseProps<P extends {}> = P & {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AddStyletronRef<P extends { ref: any }> = P extends { ref: infer R } ? P & { $ref?: R } : P;
 
-type OverrideProps<D extends React.ElementType, P extends {}> = BaseProps<P> &
+export type OverrideProps<D extends React.ElementType, P extends {}> = BaseProps<P> &
   Omit<AddStyletronRef<React.ComponentProps<D>>, keyof BaseProps<P>>;
 
 export interface BlockComponentType<D extends React.ElementType> {

@@ -6,18 +6,16 @@ LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
 
-import type { StyledBlockProps, BlockProps } from '../block';
+import type { BlockComponentType } from '../block';
 import { Block } from '../block';
 
-interface AspectRatioBoxBodyComponentType<D extends React.ElementType> {
-  <C extends React.ElementType = D>(
-    props: BlockProps<C> & Omit<StyledBlockProps & React.ComponentProps<C>, keyof BlockProps>
-  ): JSX.Element;
-  displayName?: string;
-}
-
-export const AspectRatioBoxBody = (({ position, top, bottom, width, ...restProps }) => (
-  // @ts-expect-error todo(ts-migration) TS2322 Type '{ "data-baseweb": string; position: Responsive<Position>; top: string | 0 | Scale[]; bottom: string | 0 | Scale[]; width: string | Scale[]; } & Omit<...>' is not assignable to type 'IntrinsicAtt...
+export const AspectRatioBoxBody: BlockComponentType<'div'> = ({
+  position,
+  top,
+  bottom,
+  width,
+  ...restProps
+}) => (
   <Block
     data-baseweb="aspect-ratio-box-body"
     position={position || 'absolute'}
@@ -26,6 +24,6 @@ export const AspectRatioBoxBody = (({ position, top, bottom, width, ...restProps
     width={width || '100%'}
     {...restProps}
   />
-)) as AspectRatioBoxBodyComponentType<'div'>;
+);
 
 export default AspectRatioBoxBody;

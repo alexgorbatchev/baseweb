@@ -137,7 +137,7 @@ export default function MobileMenu(props: AppNavBarProps) {
       ListItem: React.forwardRef((listItemProps, ref) => {
         return (
           <MobileNavMenuItem
-            ref={ref}
+            ref={ref as any}
             {...listItemProps}
             mapItemToNode={mapItemToNode}
             overrides={overrides}
