@@ -181,13 +181,13 @@ describe('FlexGridItem', () => {
     const testStyle = container.querySelector('div')?.getAttribute('test-style');
     const style = JSON.parse(testStyle || '');
     expect(style).toMatchInlineSnapshot(`
-Object {
-  "flexGrow": 1,
-  "marginBottom": 0,
-  "marginRight": 0,
-  "width": "calc((100% - 0px) / 1 - .5px)",
-}
-`);
+      {
+        "flexGrow": 1,
+        "marginBottom": 0,
+        "marginRight": 0,
+        "width": "calc((100% - 0px) / 1 - .5px)",
+      }
+    `);
   });
 
   it('renders with expected style overrides', () => {
@@ -197,13 +197,13 @@ Object {
     const testStyle = container.querySelector('div')?.getAttribute('test-style');
     const style = JSON.parse(testStyle || '');
     expect(style).toMatchInlineSnapshot(`
-Object {
-  "color": "red",
-  "flexGrow": 1,
-  "marginBottom": 0,
-  "marginRight": 0,
-  "width": "calc((100% - 0px) / 1 - .5px)",
-}
-`);
+      {
+        "color": "red",
+        "flexGrow": 1,
+        "marginBottom": 0,
+        "marginRight": 0,
+        "width": "calc((100% - 0px) / 1 - .5px)",
+      }
+    `);
   });
 });

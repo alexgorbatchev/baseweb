@@ -36,36 +36,36 @@ test('overrides', () => {
       customProps
     )
   ).toMatchInlineSnapshot(`
-    Object {
-      "properties": Array [
-        Object {
+    {
+      "properties": [
+        {
           "computed": false,
           "decorators": null,
-          "key": Object {
+          "key": {
             "name": "Root",
             "type": "Identifier",
           },
           "shorthand": false,
           "type": "ObjectProperty",
-          "value": Object {
-            "properties": Array [
-              Object {
+          "value": {
+            "properties": [
+              {
                 "computed": false,
                 "decorators": null,
-                "key": Object {
+                "key": {
                   "name": "style",
                   "type": "Identifier",
                 },
                 "shorthand": false,
                 "type": "ObjectProperty",
-                "value": Object {
+                "value": {
                   "async": false,
-                  "body": Object {
-                    "body": Array [
-                      Object {
-                        "body": Object {
-                          "expression": Object {
-                            "extra": Object {
+                  "body": {
+                    "body": [
+                      {
+                        "body": {
+                          "expression": {
+                            "extra": {
                               "raw": "'black'",
                               "rawValue": "black",
                             },
@@ -76,7 +76,7 @@ test('overrides', () => {
                           "loc": undefined,
                           "type": "ExpressionStatement",
                         },
-                        "label": Object {
+                        "label": {
                           "loc": undefined,
                           "name": "color",
                           "type": "Identifier",
@@ -85,17 +85,17 @@ test('overrides', () => {
                         "type": "LabeledStatement",
                       },
                     ],
-                    "directives": Array [],
+                    "directives": [],
                     "loc": undefined,
                     "type": "BlockStatement",
                   },
-                  "extra": Object {
+                  "extra": {
                     "parenStart": 0,
                     "parenthesized": true,
                   },
                   "generator": false,
                   "loc": undefined,
-                  "params": Array [],
+                  "params": [],
                   "type": "ArrowFunctionExpression",
                 },
               },
