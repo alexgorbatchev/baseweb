@@ -5,8 +5,7 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
-import { act } from 'react-dom/test-utils';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { act, render, fireEvent, screen } from '@testing-library/react';
 import BaseProvider from '../../helpers/base-provider';
 import { LightTheme } from '../../themes/index';
 
