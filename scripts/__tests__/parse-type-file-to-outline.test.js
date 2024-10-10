@@ -15,14 +15,14 @@ describe('parse-type-file-to-outline', () => {
     `;
     const output = parseFileToOutline(source);
     expect(output).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "children": Array [],
-    "lineStart": 3,
-    "name": "FirstT",
-  },
-]
-`);
+      [
+        {
+          "children": [],
+          "lineStart": 3,
+          "name": "FirstT",
+        },
+      ]
+    `);
   });
 
   it('single type', () => {
@@ -35,23 +35,23 @@ Array [
     `;
     const output = parseFileToOutline(source);
     expect(output).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "lineStart": 4,
-        "name": "a",
-      },
-      Object {
-        "lineStart": 5,
-        "name": "b",
-      },
-    ],
-    "lineStart": 3,
-    "name": "PropsT",
-  },
-]
-`);
+      [
+        {
+          "children": [
+            {
+              "lineStart": 4,
+              "name": "a",
+            },
+            {
+              "lineStart": 5,
+              "name": "b",
+            },
+          ],
+          "lineStart": 3,
+          "name": "PropsT",
+        },
+      ]
+    `);
   });
 
   it('multiple types', () => {
@@ -69,37 +69,37 @@ Array [
     `;
     const output = parseFileToOutline(source);
     expect(output).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "lineStart": 4,
-        "name": "a",
-      },
-      Object {
-        "lineStart": 5,
-        "name": "b",
-      },
-    ],
-    "lineStart": 3,
-    "name": "FirstT",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "lineStart": 9,
-        "name": "a",
-      },
-      Object {
-        "lineStart": 10,
-        "name": "b",
-      },
-    ],
-    "lineStart": 8,
-    "name": "SecondT",
-  },
-]
-`);
+      [
+        {
+          "children": [
+            {
+              "lineStart": 4,
+              "name": "a",
+            },
+            {
+              "lineStart": 5,
+              "name": "b",
+            },
+          ],
+          "lineStart": 3,
+          "name": "FirstT",
+        },
+        {
+          "children": [
+            {
+              "lineStart": 9,
+              "name": "a",
+            },
+            {
+              "lineStart": 10,
+              "name": "b",
+            },
+          ],
+          "lineStart": 8,
+          "name": "SecondT",
+        },
+      ]
+    `);
   });
 
   it('only includes exported types', () => {
@@ -117,22 +117,22 @@ Array [
     `;
     const output = parseFileToOutline(source);
     expect(output).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "lineStart": 4,
-        "name": "a",
-      },
-      Object {
-        "lineStart": 5,
-        "name": "b",
-      },
-    ],
-    "lineStart": 3,
-    "name": "FirstT",
-  },
-]
-`);
+      [
+        {
+          "children": [
+            {
+              "lineStart": 4,
+              "name": "a",
+            },
+            {
+              "lineStart": 5,
+              "name": "b",
+            },
+          ],
+          "lineStart": 3,
+          "name": "FirstT",
+        },
+      ]
+    `);
   });
 });

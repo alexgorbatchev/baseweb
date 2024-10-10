@@ -79,19 +79,19 @@ describe('Block', () => {
       const testStyle = container.querySelector('div')?.getAttribute('test-style');
       const style = JSON.parse(testStyle || '');
       expect(style).toMatchInlineSnapshot(`
-Object {
-  "@media screen and (min-width: $theme.breakpoints.largepx)": Object {
-    "marginLeft": "$theme.sizing.scale400",
-  },
-  "@media screen and (min-width: $theme.breakpoints.mediumpx)": Object {
-    "marginLeft": "$theme.sizing.scale300",
-  },
-  "@media screen and (min-width: $theme.breakpoints.smallpx)": Object {
-    "marginLeft": "$theme.sizing.scale200",
-  },
-  "marginLeft": "$theme.sizing.scale100",
-}
-`);
+        {
+          "@media screen and (min-width: $theme.breakpoints.largepx)": {
+            "marginLeft": "$theme.sizing.scale400",
+          },
+          "@media screen and (min-width: $theme.breakpoints.mediumpx)": {
+            "marginLeft": "$theme.sizing.scale300",
+          },
+          "@media screen and (min-width: $theme.breakpoints.smallpx)": {
+            "marginLeft": "$theme.sizing.scale200",
+          },
+          "marginLeft": "$theme.sizing.scale100",
+        }
+      `);
     });
 
     it('applies expected styles if responsive array has less than number of breakpoints', () => {
@@ -99,13 +99,13 @@ Object {
       const testStyle = container.querySelector('div')?.getAttribute('test-style');
       const style = JSON.parse(testStyle || '');
       expect(style).toMatchInlineSnapshot(`
-Object {
-  "@media screen and (min-width: $theme.breakpoints.smallpx)": Object {
-    "marginLeft": "$theme.sizing.scale200",
-  },
-  "marginLeft": "$theme.sizing.scale100",
-}
-`);
+        {
+          "@media screen and (min-width: $theme.breakpoints.smallpx)": {
+            "marginLeft": "$theme.sizing.scale200",
+          },
+          "marginLeft": "$theme.sizing.scale100",
+        }
+      `);
     });
   });
 
@@ -114,13 +114,13 @@ Object {
     const testStyle = container.querySelector('div')?.getAttribute('test-style');
     const style = JSON.parse(testStyle || '');
     expect(style).toMatchInlineSnapshot(`
-Object {
-  "fontFamily": "$theme.typography.font200.fontFamily",
-  "fontSize": "$theme.typography.font200.fontSize",
-  "fontWeight": "$theme.typography.font200.fontWeight",
-  "lineHeight": "$theme.typography.font200.lineHeight",
-}
-`);
+      {
+        "fontFamily": "$theme.typography.font200.fontFamily",
+        "fontSize": "$theme.typography.font200.fontSize",
+        "fontWeight": "$theme.typography.font200.fontWeight",
+        "lineHeight": "$theme.typography.font200.lineHeight",
+      }
+    `);
   });
 
   it('does not throw if provided unknown font prop', () => {
@@ -128,12 +128,12 @@ Object {
     const testStyle = container.querySelector('div')?.getAttribute('test-style');
     const style = JSON.parse(testStyle || '');
     expect(style).toMatchInlineSnapshot(`
-Object {
-  "fontFamily": null,
-  "fontSize": null,
-  "fontWeight": null,
-  "lineHeight": null,
-}
-`);
+      {
+        "fontFamily": null,
+        "fontSize": null,
+        "fontWeight": null,
+        "lineHeight": null,
+      }
+    `);
   });
 });
