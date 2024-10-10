@@ -2248,6 +2248,15 @@
     "@types/underscore" "^1.8.13"
     underscore "^1.9.1"
 
+"@mona-health/react-input-mask@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@mona-health/react-input-mask/-/react-input-mask-3.0.3.tgz#7e0200e29e59c4498290c3a001eb72112ee8bffc"
+  integrity sha512-E8t4ZAaHjmPT1NS/9nlIGR7OsyshP7hs5OwqEYnVslm/eaWrQg5ZziB6r5IOxGmFUyB+G1muFPobVPA08L2sJg==
+  dependencies:
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+    warning "^4.0.3"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -14823,14 +14832,6 @@ react-icons@^3.8.0:
   integrity sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q==
   dependencies:
     camelcase "^5.0.0"
-
-react-input-mask@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-2.0.4.tgz#9ade5cf8196f4a856dbf010820fe75a795f3eb14"
-  integrity sha512-1hwzMr/aO9tXfiroiVCx5EtKohKwLk/NT8QlJXHQ4N+yJJFyUuMT+zfTpLBwX/lK3PkuMlievIffncpMZ3HGRQ==
-  dependencies:
-    invariant "^2.2.4"
-    warning "^4.0.2"
 
 react-inspector@^6.0.2:
   version "6.0.2"

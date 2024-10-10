@@ -6,8 +6,7 @@ LICENSE file in the root directory of this source tree.
 */
 /* eslint-env browser */
 import * as React from 'react';
-import { act } from 'react-dom/test-utils';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 
 import { STATE_CHANGE_TYPE } from '../constants';
 import StatefulContainer from '../stateful-container';
