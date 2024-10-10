@@ -93,7 +93,7 @@ const DatepickerConfig: TConfig = {
       value: undefined,
       type: PropTypes.String,
       description:
-        'Mask used for the text input. Passed to react-input-mask. Disabled when formatString is provided and mask is undefined. Can also be disabled by applying `null`.',
+        'Mask used for the text input. Passed to @mona-health/react-input-mask. Disabled when formatString is provided and mask is undefined. Can also be disabled by applying `null`.',
       placeholder: '9999/99/99',
       hidden: true,
     },

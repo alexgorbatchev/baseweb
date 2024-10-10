@@ -5,8 +5,7 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
-// @ts-ignore
-import InputMask from 'react-input-mask';
+import InputMask from '@mona-health/react-input-mask';
 
 import Input from './input';
 import { Input as StyledInput } from './styled-components';
@@ -19,7 +18,6 @@ const MaskOverride = React.forwardRef<HTMLInputElement, MaskedInputProps>(
       // it does not have these properties
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       startEnhancer,
-
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       endEnhancer,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -29,12 +27,13 @@ const MaskOverride = React.forwardRef<HTMLInputElement, MaskedInputProps>(
 
       // below are props that are used by the masked-input
       onChange,
-
       onFocus,
       onBlur,
       value,
       disabled,
       readOnly,
+      mask,
+      maskChar,
       ...restProps
     }: MaskedInputProps,
     ref
@@ -47,21 +46,12 @@ const MaskOverride = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         value={value}
         disabled={disabled}
         readOnly={readOnly}
+        mask={mask}
+        maskPlaceholder={maskChar}
         {...restProps}
       >
         {/* @ts-ignore */}
-        {(props) => (
-          <StyledInput
-            ref={ref}
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            value={value}
-            disabled={disabled}
-            readOnly={readOnly}
-            {...props}
-          />
-        )}
+        <StyledInput ref={ref} />
       </InputMask>
     );
   }
@@ -107,7 +97,3 @@ export default function MaskedInput({
   };
   return <Input {...restProps} overrides={nextOverrides} />;
 }
-
-MaskedInput.defaultProps = {
-  maskChar: ' ',
-};
