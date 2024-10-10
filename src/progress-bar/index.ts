@@ -21,5 +21,4 @@ export {
   StyledProgressBarRoundedTrackForeground,
   StyledProgressBarRoundedText,
 } from './styled-components';
-// Flow
 export * from './types';

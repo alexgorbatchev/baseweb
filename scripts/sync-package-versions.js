@@ -8,10 +8,8 @@ LICENSE file in the root directory of this source tree.
 // Sets local package.json to current baseui version.
 
 /* eslint-env node */
-// @flow
 
 const fs = require('fs');
-//$FlowFixMe
 const baseuiVersion = require('../package.json').version;
 
 const packageJsonToUpdate = process.argv[2];

@@ -38,7 +38,8 @@ export function Scenario() {
       <Datepicker
         onChange={({ date }) => Array.isArray(date) && setCovariant(date)}
         range
-        // @ts-expect-error todo(flow->ts)
+        // TODO (flow->ts)
+        // @ts-expect-error
         value={covariant}
       />
     </div>

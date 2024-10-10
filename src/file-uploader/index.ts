@@ -16,6 +16,5 @@ export {
   StyledHiddenInput,
 } from './styled-components';
 
-// Flow
 export * from './types';
 export type { FileUploaderLocale } from './locale';

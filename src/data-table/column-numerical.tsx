@@ -281,9 +281,11 @@ function NumericalFilter(props) {
       excludeKind={excludeKind}
       onApply={() => {
         if (isRange) {
-          // @ts-expect-error todo(flow->ts)
+          // TODO (flow->ts)
+          // @ts-expect-error
           const lowerValue = parseFloat(inputValueLower);
-          // @ts-expect-error todo(flow->ts)
+          // TODO (flow->ts)
+          // @ts-expect-error
           const upperValue = parseFloat(inputValueUpper);
           props.setFilter({
             description: `≥ ${lowerValue} and ≤ ${upperValue}`,
@@ -293,7 +295,8 @@ function NumericalFilter(props) {
             excludeKind,
           });
         } else {
-          // @ts-expect-error todo(flow->ts)
+          // TODO (flow->ts)
+          // @ts-expect-error
           const value = parseFloat(inputValueLower);
           props.setFilter({
             description: `= ${value}`,

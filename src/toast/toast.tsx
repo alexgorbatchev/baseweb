@@ -71,7 +71,7 @@ class Toast extends React.Component<ToastProps, ToastPrivateState> {
       this.closeRef.current.focus &&
       typeof this.closeRef.current.focus === 'function'
     ) {
-      // todo(flow->ts): double check if typecast is correct
+      // TODO (flow->ts) double check if typecast is correct
       this.previouslyFocusedElement = document.activeElement as HTMLElement | SVGElement;
       this.closeRef.current.focus();
       this.setState({ isFocusVisible: true });

@@ -7,5 +7,6 @@ LICENSE file in the root directory of this source tree.
 import { SortableHeadCellFactory } from '../table';
 import { StyledHeadCell } from './styled-components';
 
-// @ts-expect-error todo(flow->ts) this assignment is not correct title property is declared as ReactNode but then it is used on div element… which is not correct
+// TODO (flow->ts) this assignment is not correct title property is declared as ReactNode but then it is used on div element… which is not correct
+// @ts-expect-error
 export const SortableHeadCell = SortableHeadCellFactory(StyledHeadCell);

@@ -31,7 +31,6 @@ CountrySelectDropdown.defaultProps = {
 
 function CountrySelectDropdown(
   props: CountrySelectDropdownProps & {
-    // todo(flow->ts) $forwardedRef: React.Ref<any>;
     $forwardedRef: React.Ref<HTMLElement> | ((a: null | HTMLElement) => unknown);
   }
 ) {
@@ -85,7 +84,8 @@ function CountrySelectDropdown(
   const scrollIndex = Math.min(
     children.findIndex(
       (opt) =>
-        // @ts-expect-error todo(flow->ts) type issue introduced in react 17
+        // TODO (flow->ts) type issue introduced in react 18
+        // @ts-expect-error
         opt.props.item.id === country.id
     ) + 5,
     children.length - 1
@@ -106,7 +106,8 @@ function CountrySelectDropdown(
                 // resetMenu and getItemLabel should not end up on native html elements
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { item, resetMenu, getItemLabel, ...rest } =
-                  // @ts-expect-error todo(flow->ts) type issue introduced in react 17
+                  // TODO (flow->ts) type issue introduced in react 18
+                  // @ts-expect-error
                   children[index].props;
                 const { id: iso, label, dialCode } = item;
                 return (

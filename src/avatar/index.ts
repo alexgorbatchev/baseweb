@@ -13,5 +13,4 @@ export {
   Root as StyledRoot,
 } from './styled-components';
 
-// Flow
 export * from './types';

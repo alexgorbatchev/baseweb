@@ -25,7 +25,7 @@ function Column<Value, FilterParams>(
     mapDataToValue: options.mapDataToValue,
     maxWidth: options.maxWidth,
     minWidth: options.minWidth,
-    // todo(flow->ts) add proper type annotation
+    // TODO (flow->ts) add proper type annotation
     // eslint-disable-next-line @typescript-eslint/no-explicit-any,react/display-name
     renderCell: React.forwardRef((props, ref: any) => {
       const locale = React.useContext(LocaleContext);

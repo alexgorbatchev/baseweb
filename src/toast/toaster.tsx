@@ -65,7 +65,8 @@ export class ToasterContainer extends React.Component<
     return { autoFocus, autoHideDuration, closeable, ...props, key };
   };
 
-  // @ts-expect-error todo(flow->ts): default value does not look correct and also probably do is never used
+  // TODO (flow->ts) default value does not look correct and also probably do is never used
+  // @ts-expect-error
   show = (props: ToastProps = {}): React.Key => {
     // @ts-ignore
     if (this.state.toasts.map((t) => t.key).includes(props.key)) {

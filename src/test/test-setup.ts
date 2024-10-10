@@ -15,9 +15,22 @@ function applyErrorDetails(message) {
     message instanceof Error ? '${message}' : 'Error: '
   }${message}`;
 }
+const syncStdoutWrite = (message: string) => {
+  if (!process.stdout.write(message)) process.stdout.on('drain', () => {});
+};
 
 let error = console.error;
 console.error = function (message) {
+  if (
+    String(message).includes('Support for defaultProps will be removed from function components')
+  ) {
+    syncStdoutWrite('-------------------------------------------------------------\n');
+    syncStdoutWrite(String(message) + '\n');
+    syncStdoutWrite('-------------------------------------------------------------\n');
+    // process.stdout.writable.
+    return;
+  }
+
   // @ts-ignore
   error.apply(console, arguments);
   throw new Error(applyErrorDetails(message));
@@ -30,7 +43,6 @@ function applyWarningDetails(message) {
 
 let warn = console.warn;
 console.warn = function (message) {
-  // @ts-ignore
   warn.apply(console, arguments);
   throw new Error(applyWarningDetails(message));
 };

@@ -119,7 +119,8 @@ const StyledBodyElement = styled<'div', HorizontalStyleProps>('div', ({ $width }
   return {
     width: $width ? $width : '100%',
     overflowX: 'hidden',
-    // @ts-expect-error todo(flow->ts) looks to be incorrect value
+    // TODO (flow->ts) looks to be incorrect value
+    // @ts-expect-error
     overflowY: 'overlay',
     flex: 1,
   };

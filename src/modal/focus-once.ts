@@ -17,6 +17,7 @@ type Props = {
 export default function FocusOnce(props: Props): React.ReactElement {
   const [tabIndex, setTabIndex] = React.useState('0');
   const child = React.Children.only(props.children);
-  // @ts-expect-error todo(flow->ts): children type should restrict children to elements only
+  // TODO (flow->ts) children type should restrict children to elements only
+  // @ts-expect-error
   return React.cloneElement(child, { tabIndex, onBlur: () => setTabIndex(null) });
 }

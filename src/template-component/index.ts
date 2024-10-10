@@ -11,5 +11,4 @@ export { default as Component } from './component';
 export { STATE_CHANGE_TYPE } from './constants';
 // Styled elements
 export { Root as StyledRoot } from './styled-components';
-// Flow
 export * from './types';

@@ -16,5 +16,4 @@ export {
   Inner as StyledInner,
 } from './styled-components';
 
-// Flow
 export * from './types';

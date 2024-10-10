@@ -31,7 +31,8 @@ const VirtualList = React.forwardRef<HTMLUListElement, any>((props, ref) => {
               <OptionList
                 key={index}
                 style={style}
-                // @ts-expect-error todo(flow->ts) type error in react 17
+                // TODO (flow->ts) type error in react 18
+                // @ts-expect-error
                 {...children[index].props}
                 overrides={{
                   ListItem: {

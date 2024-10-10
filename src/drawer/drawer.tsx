@@ -122,9 +122,7 @@ class Drawer extends React.Component<DrawerProps, DrawerState> {
     if (mountNode) {
       return mountNode;
     }
-    // Flow thinks body could be null (cast through any)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return document.body as any as HTMLBodyElement;
+    return document.body;
   }
 
   onEscape = () => {

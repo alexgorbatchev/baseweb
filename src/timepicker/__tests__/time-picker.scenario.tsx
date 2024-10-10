@@ -64,7 +64,8 @@ const MomentControlled = ({
   return (
     <React.Fragment>
       <TimePicker
-        // @ts-expect-error todo(flow->ts)
+        // TODO (flow->ts)
+        // @ts-expect-error
         adapter={momentAdapter}
         value={time}
         onChange={(time) => {
