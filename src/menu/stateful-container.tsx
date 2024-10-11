@@ -453,9 +453,7 @@ class MenuStatefulContainerInner extends React.Component<
       handleMouseLeave: this.handleMouseLeave,
       highlightedIndex: this.state.highlightedIndex,
       isFocused: this.state.isFocused,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      // @ts-ignore
-      handleKeyDown: this.props.keyboardControlNode.current ? (event) => {} : this.onKeyDown,
+      handleKeyDown: this.props.keyboardControlNode.current ? () => {} : this.onKeyDown,
       focusMenu: this.focusMenu,
       unfocusMenu: this.unfocusMenu,
     } as RenderProps);

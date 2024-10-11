@@ -68,8 +68,8 @@ export function SystemBanner(props: SystemBannerProps) {
         secondaryAction
           ? { onClick: null, ...secondaryAction }
           : hasTrailingIcon
-          ? { icon: primaryAction.icon, onClick: null, label: null }
-          : null
+            ? { icon: primaryAction.icon, onClick: null, label: null }
+            : null
       }
       hierarchy={HIERARCHY.high}
       overrides={systemBannerOverrides}

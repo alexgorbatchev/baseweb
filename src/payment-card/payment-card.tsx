@@ -5,7 +5,7 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
-import * as valid from 'card-validator';
+import valid from 'card-validator';
 
 import { addGaps, getCaretPosition } from './utils';
 
@@ -70,8 +70,6 @@ class PaymentCard extends React.Component<PaymentCardProps> {
     super(props);
     // For adding new custom card type, add card config to custom-cards.config.js
     CUSTOM_CARDS_CONFIGURATION.forEach((cardTypeConfig) =>
-      // TODO (flow-ts) upgrade card-validator dependency
-      // @ts-expect-error
       valid.creditCardType.addCard(cardTypeConfig)
     );
   }
@@ -94,7 +92,6 @@ class PaymentCard extends React.Component<PaymentCardProps> {
     const { IconWrapper: IconWrapperOverride, ...restOverrides } = overrides;
     const [IconWrapper, iconWrapperProps] = getOverrides(IconWrapperOverride, StyledIconWrapper);
 
-    // todo(flow->ts): maybe incorrect typecast, should it be `${value}`?
     const validatedValue = valid.number(value as string);
     let gaps: number[] = [];
     let type: string | undefined | null = undefined;

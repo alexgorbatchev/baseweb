@@ -8,7 +8,9 @@ LICENSE file in the root directory of this source tree.
 import { expect, test } from '@playwright/test';
 import { mount } from '../../test/integration';
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const format = require('date-fns/format');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const subMonths = require('date-fns/subMonths');
 
 const selectors = {

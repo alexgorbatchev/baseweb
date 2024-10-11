@@ -123,10 +123,10 @@ export default class Pagination extends React.PureComponent<
           backgroundColor: $disabled
             ? $theme.colors.buttonDisabledFill
             : $isOpen
-            ? $theme.colors.buttonTertiaryHover
-            : $error
-            ? $theme.colors.negative50
-            : $theme.colors.buttonTertiaryFill,
+              ? $theme.colors.buttonTertiaryHover
+              : $error
+                ? $theme.colors.negative50
+                : $theme.colors.buttonTertiaryFill,
           ':hover': {
             backgroundColor: $theme.colors.buttonTertiaryHover,
           },

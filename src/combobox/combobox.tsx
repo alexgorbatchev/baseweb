@@ -179,7 +179,6 @@ function Combobox<Option>(props: ComboboxProps<Option>) {
       // EventTarget which is a super type of Node. Passing an EventTarget seems
       // to work fine, assuming the flow type is too strict.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      // @ts-ignore
       listboxRef.current.contains(event.relatedTarget as any)
     ) {
       return;
@@ -190,9 +189,8 @@ function Combobox<Option>(props: ComboboxProps<Option>) {
     if (onBlur) onBlur(event);
   }
 
-  function handleInputClick(event) {
+  function handleInputClick() {
     if (inputRef.current) {
-      // @ts-ignore
       inputRef.current.focus();
     }
 
@@ -201,7 +199,6 @@ function Combobox<Option>(props: ComboboxProps<Option>) {
     }
   }
 
-  // @ts-ignore
   function handleInputChange(event) {
     handleOpen();
     setSelectionIndex(-1);
@@ -209,7 +206,6 @@ function Combobox<Option>(props: ComboboxProps<Option>) {
     setTempValue(event.target.value);
   }
 
-  // @ts-ignore
   function handleOptionClick(index) {
     let clickedOption = options[index];
     if (clickedOption) {
@@ -220,7 +216,6 @@ function Combobox<Option>(props: ComboboxProps<Option>) {
       setTempValue(stringified);
 
       if (inputRef.current) {
-        // @ts-ignore
         inputRef.current.focus();
       }
     }
@@ -270,7 +265,6 @@ function Combobox<Option>(props: ComboboxProps<Option>) {
               return (
                 // List items are not focusable, therefore will never trigger a key event from it.
                 // Secondly, key events are handled from the input element.
-                // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <ListItem
                   aria-selected={isSelected}
                   id={isSelected ? activeDescendantId : null}
@@ -302,7 +296,6 @@ function Combobox<Option>(props: ComboboxProps<Option>) {
           // a11y linter implements the older 1.0 spec, suppressing to use updated 1.1
           // https://github.com/A11yance/aria-query/issues/43
           // https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/442
-          // eslint-disable-next-line jsx-a11y/role-has-required-aria-props
           role="combobox"
           {...inputContainerProps}
         >

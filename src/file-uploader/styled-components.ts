@@ -57,8 +57,8 @@ export const StyledContentMessage = styled<'div', StyleProps>(
     color: $afterFileDrop
       ? $theme.colors.contentPrimary
       : $isDragActive
-      ? $theme.colors.contentAccent
-      : null,
+        ? $theme.colors.contentAccent
+        : null,
     marginTop: $afterFileDrop ? $theme.sizing.scale100 : null,
     marginBottom: $afterFileDrop ? $theme.sizing.scale100 : null,
   })

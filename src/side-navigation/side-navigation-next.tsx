@@ -272,6 +272,8 @@ type SideNavigationSectionProps = {
 
 export function SideNavigationSection(props: SideNavigationSectionProps) {
   const {
+    // TODO agorbatchev: `active` isn't used, looks like a possible bug
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     active = false,
     children,
     forceOpen = false,

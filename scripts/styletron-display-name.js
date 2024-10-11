@@ -7,15 +7,7 @@ LICENSE file in the root directory of this source tree.
 
 /* eslint-env node */
 
-const {
-  t,
-  withJsFiles,
-  findFiles,
-  parseJs,
-  readFile,
-  writeFile,
-  generateJs,
-} = require('@dubstep/core');
+const { t, findFiles, parseJs, readFile, writeFile, generateJs } = require('@dubstep/core');
 
 const moduleNames = ['styled', 'withStyle', 'withStyleDeep'];
 

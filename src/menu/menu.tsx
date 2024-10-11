@@ -72,11 +72,10 @@ export default function Menu(props: StatelessMenuProps) {
         );
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      // @ts-ignore
       const groupItems = groupedItems[optgroup].map((item, index) => {
         itemIndex = itemIndex + 1;
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { getRequiredItemProps = (item, index) => ({} as RenderItemProps) } = props;
+        const { getRequiredItemProps = (item, index) => ({}) as RenderItemProps } = props;
 
         if (item.divider === true) {
           return <MenuDivider key={itemIndex} {...menuDividerProps} />;

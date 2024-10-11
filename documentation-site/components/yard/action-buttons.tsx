@@ -13,7 +13,6 @@ import { MdContentCopy, MdFormatIndentIncrease, MdRotateRight } from 'react-icon
 import { Button, KIND, SIZE } from 'baseui/button';
 import { ButtonGroup } from 'baseui/button-group';
 
-// @ts-ignore
 import { deploy } from '../../components/code-sandboxer.jsx';
 
 const ActionButtons: React.FC<{

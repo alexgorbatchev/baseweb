@@ -32,7 +32,7 @@ export const getAnchorTransform = (anchor: AnchorPositions, anchorSize: number) 
     [FLOATING_MARKER_ANCHOR_POSITIONS.topRight]: `translate(-100%, ${anchorSize}px)`,
     [FLOATING_MARKER_ANCHOR_POSITIONS.bottomLeft]: `translate(${anchorSize}px, -100%)`,
     [FLOATING_MARKER_ANCHOR_POSITIONS.bottomRight]: `translate(-100%, -100%)`,
-  }[anchor]);
+  })[anchor];
 
 export const StyledDragShadowContainer = styled<
   'div',
@@ -441,7 +441,7 @@ StyledLabelSlot.displayName = 'StyledLabelSlot';
 
 export const StyledLabel = styled<
   'div',
-  { $size: PinHeadSize; $renderSecondaryLabel: boolean; $color: String }
+  { $size: PinHeadSize; $renderSecondaryLabel: boolean; $color: string }
 >('div', ({ $theme, $size, $renderSecondaryLabel, $color }) => {
   const pinheadSizeOrder = Object.values(PINHEAD_SIZES_SHAPES);
   let labelSizeIndex = pinheadSizeOrder.findIndex((x) => $size === x);

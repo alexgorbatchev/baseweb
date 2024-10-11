@@ -397,8 +397,8 @@ export default class Day<T = Date> extends React.Component<DayProps<T>, DayState
             : localeContext.datepicker.selectedStartDateLabel
           : localeContext.datepicker.selectedLabel
         : sharedProps.$disabled
-        ? localeContext.datepicker.dateNotAvailableLabel
-        : localeContext.datepicker.chooseLabel
+          ? localeContext.datepicker.dateNotAvailableLabel
+          : localeContext.datepicker.chooseLabel
     } ${this.dateHelpers.format(date, 'fullOrdinalWeek', this.props.locale)}. ${
       !sharedProps.$disabled ? localeContext.datepicker.dateAvailableLabel : ''
     }`;

@@ -4,8 +4,6 @@ Copyright (c) Uber Technologies, Inc.
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
-/* eslint-disable no-prototype-builtins */
-// @flow
 import * as t from '@babel/types';
 import { withJsFiles } from '@dubstep/core';
 
@@ -132,7 +130,7 @@ function updateTypographyComponentImports(path) {
   });
 }
 
-async function codemod(options: { dir: string }) {
+async function codemod(options) {
   await withJsFiles(`${options.dir}/**/*.js`, async (path) => {
     updateCaptionColorAttributes(path);
     updateFontAttributes(path);

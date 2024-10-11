@@ -30,7 +30,7 @@ module.exports = (babel) => {
 
   return {
     visitor: {
-      Identifier(path, state) {
+      Identifier(path) {
         const { name } = path.node;
         if (name !== '__DEV__' && name !== '__NODE__' && name !== '__BROWSER__') {
           return;

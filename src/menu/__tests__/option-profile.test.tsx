@@ -49,7 +49,6 @@ describe('Option Profile Stateless Component', () => {
     const props = {
       ...getSharedProps(),
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      // @ts-ignore
       getProfileItemImg: (item) => MockComponent,
     };
     const { container } = render(<OptionProfile {...props} />);

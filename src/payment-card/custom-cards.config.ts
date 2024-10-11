@@ -11,7 +11,7 @@ LICENSE file in the root directory of this source tree.
 const UATP_CARD_TYPE_CONFIG = {
   niceType: 'Uatp',
   type: 'uatp',
-  patterns: [[1001, 1999]],
+  patterns: [1001, 1999],
   gaps: [4, 9],
   lengths: [15],
   code: {

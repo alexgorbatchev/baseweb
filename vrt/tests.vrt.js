@@ -73,6 +73,7 @@ scenarioNames.forEach((scenarioName) => {
   });
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function snapshot(page, identifier, viewport = VIEWPORT.desktop) {
   const image = await page.screenshot({ animations: 'disabled' });
   expect(image).toMatchSnapshot(identifier + '.png');
@@ -116,7 +117,7 @@ async function getPageScrollHeight() {
     const client = await page.target().createCDPSession();
     const metrics = await client.send('Page.getLayoutMetrics');
     return Math.ceil(metrics.contentSize.height);
-  } catch (er) {
+  } catch {
     // If something went wrong, just return a decent default height.
     return 800;
   }
@@ -127,7 +128,7 @@ function getAllScenarioNames() {
   try {
     const metaFile = require('../build-ladle/meta.json');
     names = Object.keys(metaFile.stories);
-  } catch (e) {
+  } catch {
     console.log('build-ladle/meta.json not found. Build ladle first.');
   }
   return names;

@@ -137,6 +137,7 @@ export default function MobileMenu(props: AppNavBarProps) {
       ListItem: React.forwardRef((listItemProps, ref) => {
         return (
           <MobileNavMenuItem
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ref={ref as any}
             {...listItemProps}
             mapItemToNode={mapItemToNode}

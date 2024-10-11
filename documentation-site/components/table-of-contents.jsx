@@ -60,9 +60,8 @@ const TableOfContents = (props) => {
   return (
     <ul
       className={css({
-        [theme.direction === 'rtl'
-          ? 'borderRight'
-          : 'borderLeft']: `1px solid ${theme.colors.mono400}`,
+        [theme.direction === 'rtl' ? 'borderRight' : 'borderLeft']:
+          `1px solid ${theme.colors.mono400}`,
         listStyle: 'none',
         [theme.direction === 'rtl' ? 'marginRight' : 'marginLeft']: theme.sizing.scale400,
         paddingLeft: 0,

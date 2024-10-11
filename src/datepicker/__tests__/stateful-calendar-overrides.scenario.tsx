@@ -58,8 +58,8 @@ export function Scenario() {
                   ? $theme.colors.positive500
                   : $theme.colors.positive
                 : $isHovered || $isHighlighted
-                ? $theme.colors.positive200
-                : 'transparent',
+                  ? $theme.colors.positive200
+                  : 'transparent',
             },
           }),
         },

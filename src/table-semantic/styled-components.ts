@@ -57,7 +57,6 @@ type StyledTableProps = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// @ts-ignore
 export const StyledTable = styled<'table', StyledTableProps>('table', ({ $theme, $width }) => {
   return {
     borderSpacing: '0',

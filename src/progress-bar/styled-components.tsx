@@ -132,10 +132,10 @@ export const StyledBarProgress = styled<'div', StyleProps>('div', (props) => {
           },
         }
       : stepState === stepStates.completed
-      ? {
-          transform: 'translateX(0%)',
-        }
-      : { transform: 'translateX(-102%)' };
+        ? {
+            transform: 'translateX(0%)',
+          }
+        : { transform: 'translateX(-102%)' };
 
   return {
     borderTopLeftRadius: borderRadius,

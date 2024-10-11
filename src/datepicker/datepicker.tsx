@@ -455,8 +455,8 @@ export default class Datepicker<T = Date> extends React.Component<
     this.props.placeholder || this.props.placeholder === ''
       ? this.props.placeholder
       : this.props.range && !this.props.separateRangeInputs
-      ? `YYYY/MM/DD ${INPUT_DELIMITER} YYYY/MM/DD`
-      : 'YYYY/MM/DD';
+        ? `YYYY/MM/DD ${INPUT_DELIMITER} YYYY/MM/DD`
+        : 'YYYY/MM/DD';
 
   renderInputComponent(locale: Locale, inputRole?: InputRole) {
     const { overrides = {} } = this.props;
@@ -475,8 +475,8 @@ export default class Datepicker<T = Date> extends React.Component<
       inputRole === INPUT_ROLE.startDate
         ? startDate
         : inputRole === INPUT_ROLE.endDate
-        ? endDate
-        : this.state.inputValue;
+          ? endDate
+          : this.state.inputValue;
 
     return (
       <InputComponent
@@ -612,20 +612,20 @@ export default class Datepicker<T = Date> extends React.Component<
                 (Array.isArray(this.props.value) && !this.props.value[0] && !this.props.value[1])
                   ? ''
                   : // Date selected in a non-range picker
-                  !Array.isArray(this.props.value)
-                  ? getInterpolatedString(locale.datepicker.selectedDate, {
-                      date: this.state.inputValue || '',
-                    })
-                  : // Start and end dates are selected in a range picker
-                  this.props.value[0] && this.props.value[1]
-                  ? getInterpolatedString(locale.datepicker.selectedDateRange, {
-                      startDate: this.formatDisplayValue(this.props.value[0]),
-                      endDate: this.formatDisplayValue(this.props.value[1]),
-                    })
-                  : // A single date selected in a range picker
-                    `${getInterpolatedString(locale.datepicker.selectedDate, {
-                      date: this.formatDisplayValue(this.props.value[0]),
-                    })} ${locale.datepicker.selectSecondDatePrompt}`
+                    !Array.isArray(this.props.value)
+                    ? getInterpolatedString(locale.datepicker.selectedDate, {
+                        date: this.state.inputValue || '',
+                      })
+                    : // Start and end dates are selected in a range picker
+                      this.props.value[0] && this.props.value[1]
+                      ? getInterpolatedString(locale.datepicker.selectedDateRange, {
+                          startDate: this.formatDisplayValue(this.props.value[0]),
+                          endDate: this.formatDisplayValue(this.props.value[1]),
+                        })
+                      : // A single date selected in a range picker
+                        `${getInterpolatedString(locale.datepicker.selectedDate, {
+                          date: this.formatDisplayValue(this.props.value[0]),
+                        })} ${locale.datepicker.selectSecondDatePrompt}`
               }
             </p>
           </React.Fragment>

@@ -13,14 +13,12 @@ import { parse } from 'react-view';
 export function toggleOverrideSharedProps(code: string, sharedProps: string[]) {
   let result = '';
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ast: any = parse(code);
+    const ast = parse(code);
     traverse(ast, {
       ArrowFunctionExpression(path) {
         if (result !== '') return;
         if (path.node.params.length !== 1) return;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const firstParam: any = path.node.params[0];
+        const firstParam = path.node.params[0];
         let newParams: string[] = [];
         if (firstParam.type === 'ObjectPattern') {
           const properties = firstParam.properties;
@@ -37,7 +35,6 @@ export function toggleOverrideSharedProps(code: string, sharedProps: string[]) {
             }
           });
           path.node.params = [
-            //@ts-ignore
             t.objectPattern(
               newParams.map((param) =>
                 t.objectProperty(t.identifier(param), t.identifier(param), false, true)
@@ -46,9 +43,7 @@ export function toggleOverrideSharedProps(code: string, sharedProps: string[]) {
           ];
         } else {
           path.node.params = [
-            //@ts-ignore
             t.objectPattern([
-              //@ts-ignore
               t.objectProperty(t.identifier('$theme'), t.identifier('$theme'), false, true),
             ]),
           ];
@@ -56,7 +51,7 @@ export function toggleOverrideSharedProps(code: string, sharedProps: string[]) {
         result = generate(path.node).code;
       },
     });
-  } catch (e) {
+  } catch {
     throw new Error('Override params transform was no good.');
   }
   return result;

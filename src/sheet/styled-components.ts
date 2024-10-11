@@ -129,10 +129,10 @@ export const StyledHeaderTextContainer = styled<
     $hasTitle && $hasDescription
       ? $theme.sizing.scale1400
       : $hasTitle
-      ? $theme.sizing.scale1200
-      : $hasDescription
-      ? $theme.sizing.scale900
-      : $theme.sizing.scale800;
+        ? $theme.sizing.scale1200
+        : $hasDescription
+          ? $theme.sizing.scale900
+          : $theme.sizing.scale800;
   return {
     display: 'flex',
     flexDirection: 'column',

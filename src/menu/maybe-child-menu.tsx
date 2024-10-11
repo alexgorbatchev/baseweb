@@ -17,6 +17,7 @@ type Props = {
   getChildMenu: ((item: Item) => React.ReactNode) | undefined | null;
   isOpen: boolean;
   item: Item;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref?: React.RefObject<any>;
   resetParentMenu: () => void;
   renderAll?: boolean;

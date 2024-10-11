@@ -264,6 +264,7 @@ async function createSnapshotPullRequest() {
     return pullRequest.data;
   } catch (er) {
     log(`There was an error creating a new snapshot PR.`);
+    log(er);
   }
 }
 

@@ -4,8 +4,6 @@ Copyright (c) Uber Technologies, Inc.
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
-/* eslint-disable import/extensions */
-// @ts-ignore
 import { es } from 'date-fns/locale/index.js';
 import * as utilsHelpers from '../utils';
 import { formatDate } from '../utils';
@@ -16,9 +14,9 @@ import MomentUtils from '@date-io/moment';
 import moment from 'moment';
 
 const momentAdapter = new MomentUtils({ instance: moment });
-/* eslint-enable import/extensions */
 const dateHelpers = new DateHelpers(adapter);
-// TODO (flow->ts)
+
+// TODO flow->ts
 // @ts-expect-error
 const momentHelpers = new DateHelpers(momentAdapter);
 
@@ -170,16 +168,13 @@ const getDiffereningAdapterMap = (runAdapter, value) => {
 const helpers: DateHelpers<Date> = Object.keys(dateHelpers).reduce((memo, methodName) => {
   return {
     ...memo,
-    // @ts-ignore
     [methodName]: (...args) => {
-      // @ts-ignore
       const dateHelpersReturn = dateHelpers[methodName](...args);
-      // @ts-ignore
+      // eslint-disable-next-line import/namespace
       if (!utilsHelpers[methodName] && excludedFromChecks.includes(methodName)) {
         return dateHelpersReturn;
       }
 
-      // @ts-ignore
       const differingAdapterMap = getDiffereningAdapterMap((helpers, convertArgs) => {
         const convertedArgs = convertArgs(args);
         return helpers[methodName](...convertedArgs);
@@ -192,10 +187,7 @@ const helpers: DateHelpers<Date> = Object.keys(dateHelpers).reduce((memo, method
 
       if (Object.keys(differingAdapterMap).length > 0) {
         const adapterString = Object.keys(differingAdapterMap).reduce((memo, name) => {
-          return `${memo}${name}: ${
-            // @ts-ignore
-            differingAdapterMap[name]
-          } date-fns: ${defaultGetComparisonValue(dateHelpersReturn)}\n`;
+          return `${memo}${name}: ${differingAdapterMap[name]} date-fns: ${defaultGetComparisonValue(dateHelpersReturn)}\n`;
         }, '');
         throw new Error(
           `values return by one or more versions of helpers differ\n${adapterString}`
@@ -661,7 +653,6 @@ describe('getEffectiveMinDate', () => {
       expect(
         helpers.getEffectiveMinDate({
           minDate,
-          // @ts-ignore
           includeDates: null,
         })
       ).toEqual(minDate);
@@ -697,7 +688,6 @@ describe('getEffectiveMaxDate', () => {
       expect(
         helpers.getEffectiveMaxDate({
           maxDate,
-          // @ts-ignore
           includeDates: null,
         })
       ).toEqual(maxDate);

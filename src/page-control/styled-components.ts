@@ -83,8 +83,8 @@ export const StyledDot = styled<
     backgroundColor: $disabled
       ? $theme.colors.contentStateDisabled
       : $active
-      ? colors[$kind].active
-      : colors[$kind].inactive,
+        ? colors[$kind].active
+        : colors[$kind].inactive,
     ...(!$isVisible
       ? {
           // https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements

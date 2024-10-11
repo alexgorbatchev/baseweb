@@ -184,7 +184,6 @@ export default function CountryPicker(props: CountrySelectProps) {
       clearable={false}
       disabled={disabled}
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      // @ts-ignore
       getOptionLabel={({ option, optionState }) => {
         const iso = option.id;
         return (

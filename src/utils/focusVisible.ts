@@ -121,7 +121,7 @@ export function teardown(doc) {
 export function isFocusVisible(event) {
   try {
     return event.target.matches(':focus-visible');
-  } catch (error) {
+  } catch {
     // browsers not implementing :focus-visible will throw a SyntaxError
     // we use our own heuristic for those browsers
     // rethrow might be better if it's not the expected error but do we really

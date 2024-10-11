@@ -37,7 +37,7 @@ export const getMediaQueryPageMargins = (theme: Theme): MediaQueryPageMargins =>
     // There is no guarantee grid.margins will have enough margins to satisfy
     // each breakpoint.
     const margin = Array.isArray(theme.grid.margins)
-      ? theme.grid.margins[index] ?? theme.grid.margins.at(-1)
+      ? (theme.grid.margins[index] ?? theme.grid.margins.at(-1))
       : theme.grid.margins;
 
     result[query] = { paddingInlineStart: `${margin}px`, paddingInlineEnd: `${margin}px` };

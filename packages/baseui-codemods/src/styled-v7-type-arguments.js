@@ -5,8 +5,6 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 
-// @flow
-
 import * as t from '@babel/types';
 import { withJsFiles } from '@dubstep/core';
 
@@ -28,7 +26,7 @@ function isStyledComponent(path) {
   );
 }
 
-async function styledV7TypeArguments(options: { dir: string }) {
+async function styledV7TypeArguments(options) {
   await withJsFiles(`${options.dir}/**/*.js`, async (p) => {
     if (containsFlowComment(p)) {
       const styledLocalImportName = getStyledLocalImportName(p);

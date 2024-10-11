@@ -23,7 +23,7 @@ async function main() {
       await fs.promises.mkdir(tmpDir);
       await fs.promises.rmdir(tmpDir, { recursive: true });
       await fs.promises.mkdir(tmpDir);
-    } catch (e) {}
+    } catch {}
 
     const src = `https://www.iana.org/time-zones/repository/tzdata-latest.tar.gz`;
     await exec(`curl -L ${src} | gzip -dc | tar -xf - --directory ${tmpDir}`);
