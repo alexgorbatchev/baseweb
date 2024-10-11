@@ -7,7 +7,7 @@ LICENSE file in the root directory of this source tree.
 
 const { parseFileToOutline } = require('../cheat-sheet-generator.js');
 
-describe('parse-type-file-to-outline', () => {
+describe('parseFileToOutline', () => {
   it('simple type', () => {
     const source = `
       // @flow

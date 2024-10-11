@@ -133,8 +133,8 @@ export const Checkmark = styled<'span', SharedStyleProps>('span', (props) => {
   const tickColor = $disabled
     ? $theme.colors.tickMarkFillDisabled
     : $error
-    ? $theme.colors.tickMarkFillError
-    : $theme.colors.tickMarkFill;
+      ? $theme.colors.tickMarkFillError
+      : $theme.colors.tickMarkFill;
 
   const indeterminate = encodeURIComponent(`
     <svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,8 +183,8 @@ export const Checkmark = styled<'span', SharedStyleProps>('span', (props) => {
     backgroundImage: $isIndeterminate
       ? `url('data:image/svg+xml,${indeterminate}');`
       : $checked
-      ? `url('data:image/svg+xml,${check}');`
-      : null,
+        ? `url('data:image/svg+xml,${check}');`
+        : null,
     backgroundColor: getBackgroundColor(props),
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -245,8 +245,8 @@ export const Toggle = styled<'div', SharedStyleProps>('div', (props) => {
     boxShadow: props.$isFocusVisible
       ? `0 0 0 3px ${props.$theme.colors.accent}`
       : props.$isHovered && !props.$disabled
-      ? props.$theme.lighting.shadow500
-      : props.$theme.lighting.shadow400,
+        ? props.$theme.lighting.shadow500
+        : props.$theme.lighting.shadow400,
     outline: 'none',
     height: props.$theme.sizing.scale700,
     width: props.$theme.sizing.scale700,

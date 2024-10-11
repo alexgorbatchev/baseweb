@@ -86,15 +86,12 @@ const Block = React.forwardRef<
       whiteSpace,
       ...restProps
     }: React.ComponentProps<BlockComponentType<'div'>>,
-    ref: any
+    ref
   ) => {
     const [BaseBlock, baseBlockProps] = getOverrides(overrides.Block, StyledBlock);
 
     return (
       <BaseBlock
-        // coerced to any because because of how react components are typed.
-        // cannot guarantee an html element
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ref={ref}
         $as={as}
         $color={color}

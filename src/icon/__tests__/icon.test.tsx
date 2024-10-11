@@ -52,7 +52,7 @@ describe('Icon', () => {
 
   // Test that all the icons render
   Object.keys(Icons).forEach((key) => {
-    // @ts-ignore
+    // eslint-disable-next-line import/namespace
     const Component = Icons[key];
     test(`renders ${key} icon`, () => {
       const { container } = render(<Component />);

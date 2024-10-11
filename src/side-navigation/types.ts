@@ -6,10 +6,9 @@ LICENSE file in the root directory of this source tree.
 */
 import type * as React from 'react';
 import type { Override } from '../helpers/overrides';
-import { STATE_CHANGE_TYPE } from './constants';
+import type { STATE_CHANGE_TYPE } from './constants';
 
-const stateChangeType = Object.freeze(STATE_CHANGE_TYPE);
-export type StateType = (typeof stateChangeType)[keyof typeof stateChangeType];
+export type StateType = (typeof STATE_CHANGE_TYPE)[keyof typeof STATE_CHANGE_TYPE];
 
 export type State = {
   activeItemId?: string;

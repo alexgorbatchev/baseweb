@@ -6,8 +6,8 @@ LICENSE file in the root directory of this source tree.
 */
 
 export default function deepMerge(
-  target?: {} | null,
-  ...sources: Array<null | {} | undefined | null>
+  target?: object | null,
+  ...sources: Array<null | object | undefined | null>
 ): // eslint-disable-next-line @typescript-eslint/no-explicit-any
 any {
   target = target || {};
@@ -17,20 +17,11 @@ any {
   for (let i = 0; i < len; i++) {
     obj = sources[i] || {};
     for (let key in obj) {
-      // @ts-ignore
       if (typeof obj[key] !== undefined) {
-        // @ts-ignore
         value = obj[key];
         if (isCloneable(value)) {
-          // @ts-ignore
-          target[key] = deepMerge(
-            /* eslint-disable-next-line no-mixed-operators */
-            // @ts-ignore
-            target[key] || (Array.isArray(value) && []) || {},
-            value
-          );
+          target[key] = deepMerge(target[key] || (Array.isArray(value) && []) || {}, value);
         } else {
-          // @ts-ignore
           target[key] = value;
         }
       }
@@ -40,6 +31,5 @@ any {
 }
 
 function isCloneable(obj: unknown) {
-  /* eslint-disable-next-line eqeqeq */
   return Array.isArray(obj) || {}.toString.call(obj) == '[object Object]';
 }

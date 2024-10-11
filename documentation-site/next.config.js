@@ -5,9 +5,12 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-env node */
 
 const { resolve } = require('path');
+const fs = require('fs');
+
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
@@ -49,8 +52,19 @@ module.exports = withMDX({
 
     config.optimization.splitChunks.maxSize = 20_000;
 
-    config.resolve.alias.baseui = resolve(__dirname, '../dist');
+    const baseuiDir = resolve(__dirname, '../dist');
+
+    try {
+      const stats = fs.statSync(baseuiDir);
+      if (!stats.isDirectory()) throw new Error('no dist');
+    } catch {
+      console.error('Missing ../dist folder, run yarn build:cjs in the parent directory');
+      process.exit(1);
+    }
+
+    config.resolve.alias.baseui = baseuiDir;
     config.resolve.alias.examples = resolve(__dirname, 'examples');
+
     // references next polyfills example: https://github.com/zeit/next.js/tree/canary/examples/with-polyfills
     const originalEntry = config.entry;
     config.resolve.fallback = { fs: false };

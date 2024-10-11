@@ -559,8 +559,8 @@ export const StyledDay = styled<'div', SharedStyleProps>('div', (props) => {
       backgroundColor: $selected
         ? colors.calendarDayBackgroundSelectedHighlighted
         : $pseudoSelected && $isHighlighted
-        ? colors.calendarDayBackgroundPseudoSelectedHighlighted
-        : colors.calendarBackground,
+          ? colors.calendarDayBackgroundPseudoSelectedHighlighted
+          : colors.calendarBackground,
       height: circleHeight,
       width: $density === DENSITY.high ? '40px' : '48px',
       position: 'absolute',

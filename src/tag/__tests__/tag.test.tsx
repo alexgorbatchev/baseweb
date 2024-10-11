@@ -57,7 +57,6 @@ describe('Tag', () => {
 
   it('passes flow check with tag enum', function () {
     // https://github.com/uber/baseweb/issues/1910
-    // eslint-disable-next-line no-unused-vars
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function TagWrapper(props: { kind: TagKind }) {
       return <Tag kind={props.kind} />;

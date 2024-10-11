@@ -169,8 +169,8 @@ export default class MyApp extends App {
           ? 'DarkThemeMove'
           : 'DarkTheme'
         : config.font === 'move'
-        ? 'LightThemeMove'
-        : 'LightTheme';
+          ? 'LightThemeMove'
+          : 'LightTheme';
 
     this.setState({
       themeSet: true,

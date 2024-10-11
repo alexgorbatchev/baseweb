@@ -12,7 +12,6 @@
     "isolatedModules": true,
     "baseUrl": "./",
     "paths": {
-      // todo: maybe use dist to improve performance
       "baseui": ["../dist"],
       "baseui/*": ["../dist/*"]
     },

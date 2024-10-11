@@ -6,11 +6,11 @@ LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
 
-import { Block, type StyledBlockProps } from '../block';
+import { Block } from '../block';
 import { mergeOverrides } from '../helpers/overrides';
 import { getMediaQueries, getMediaQuery } from '../helpers/responsive-helpers';
 import type { FlexGridItemProps } from './types';
-import type { Responsive, Scale } from '../block';
+import type { StyledBlockProps, Responsive, Scale } from '../block';
 import type { StyleOverride } from '../helpers/overrides';
 import type { Theme } from '../styles';
 

@@ -37,7 +37,7 @@ type RowData = [
   {
     content: string;
     href: string;
-  }
+  },
 ];
 
 // https://gist.github.com/6174/6062387

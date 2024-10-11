@@ -35,7 +35,7 @@ type StyleFn<DefaultTheme> = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     C extends keyof JSX.IntrinsicElements | React.ComponentType<any>,
     P extends {},
-    Theme = DefaultTheme
+    Theme = DefaultTheme,
   >(
     component: C,
     style:

@@ -34,7 +34,6 @@ import { forkBlur, forkFocus, isFocusVisible } from '../utils/focusVisible';
 import type { SyntheticEvent } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// @ts-ignore
 const navBtnStyle = ({ $theme }) => ({
   cursor: 'pointer',
 });
@@ -194,10 +193,10 @@ export default class CalendarHeader<T = Date> extends React.Component<
       year === maxYear && year === minYear
         ? maxMinYearMonthsIntersection
         : year === maxYear
-        ? maxYearMonths
-        : year === minYear
-        ? minYearMonths
-        : null;
+          ? maxYearMonths
+          : year === minYear
+            ? minYearMonths
+            : null;
 
     // @ts-ignore
     const formatMonthLabel = (month) => this.dateHelpers.getMonthInLocale(month, this.props.locale);

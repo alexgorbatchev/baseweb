@@ -49,7 +49,7 @@ export type ListProps = {
   endEnhancer?: React.ComponentType<{}>;
   'aria-label'?: string;
   'aria-selected'?: boolean;
-  id?: String;
+  id?: string;
   onClick?: (a: React.SyntheticEvent<HTMLButtonElement>) => unknown;
   overrides?: ListOverrides;
   role?: string;

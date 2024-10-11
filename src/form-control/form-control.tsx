@@ -183,14 +183,14 @@ export default class FormControl extends React.Component<FormControlProps, FormC
                     typeof onlyChildProps.error !== 'undefined'
                       ? onlyChildProps.error
                       : sharedProps.$error === false
-                      ? undefined
-                      : sharedProps.$error,
+                        ? undefined
+                        : sharedProps.$error,
                   positive:
                     typeof onlyChildProps.positive !== 'undefined'
                       ? onlyChildProps.positive
                       : sharedProps.$positive === false
-                      ? undefined
-                      : sharedProps.$positive,
+                        ? undefined
+                        : sharedProps.$positive,
                 });
               })}
               {(!!caption || !!error || positive) && (

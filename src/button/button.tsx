@@ -145,6 +145,7 @@ export interface ButtonComponentType {
     props: ButtonProps &
       SharedStyleProps &
       Omit<React.ComponentProps<C>, keyof ButtonProps | keyof SharedStyleProps> & {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         $as?: C | React.ComponentType<any> | keyof JSX.IntrinsicElements;
       }
   ): JSX.Element;

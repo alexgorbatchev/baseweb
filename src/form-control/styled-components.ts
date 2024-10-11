@@ -47,8 +47,8 @@ export const LabelEndEnhancer = styled<'span', StyleProps>(
     color: $counterError
       ? colors.negative400
       : $disabled
-      ? colors.contentSecondary
-      : colors.contentPrimary,
+        ? colors.contentSecondary
+        : colors.contentPrimary,
   })
 );
 

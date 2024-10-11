@@ -26,35 +26,28 @@ import {
 import type { AppNavBarProps } from './types';
 import { defaultMapItemToNode, mapItemsActive } from './utils';
 
-// @ts-ignore
 function MainMenuItem(props) {
   const { item, kind = KIND.primary, mapItemToNode, onSelect, overrides = {} } = props;
   const [focusVisible, setFocusVisible] = React.useState(false);
 
-  // @ts-ignore
   function handleFocus(event) {
     if (isFocusVisible(event)) {
       setFocusVisible(true);
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // @ts-ignore
-  function handleBlur(event) {
+  function handleBlur() {
     if (focusVisible) {
       setFocusVisible(false);
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // @ts-ignore
-  function handleClick(event) {
+  function handleClick() {
     if (onSelect) {
       onSelect(item);
     }
   }
 
-  // @ts-ignore
   function handleKeyDown(event) {
     if (event.key === 'Enter' && onSelect) {
       onSelect(item);

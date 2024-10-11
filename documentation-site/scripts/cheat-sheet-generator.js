@@ -106,7 +106,7 @@ function generateCheatSheet() {
     export default outlines;
   `;
 
-  fs.writeFileSync(`${process.cwd()}/documentation-site/cheat-sheet.js`, content);
+  fs.writeFileSync(`${__dirname}/cheat-sheet.js`, content);
 }
 
 module.exports = {

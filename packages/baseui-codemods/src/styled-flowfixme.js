@@ -5,15 +5,13 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 
-// @flow
-
 import { withJsFiles } from '@dubstep/core';
 
 import { containsFlowComment, getStyledLocalImportName } from './shared.js';
 
 const FLOW_IGNORE = '$FlowFixMe';
 
-async function styledV7FlowFixme(options: { dir: string }) {
+async function styledV7FlowFixme(options) {
   await withJsFiles(`${options.dir}/**/*.js`, async (p) => {
     if (containsFlowComment(p)) {
       const styledLocalImportName = getStyledLocalImportName(p);

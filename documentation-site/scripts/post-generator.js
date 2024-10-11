@@ -12,7 +12,7 @@ LICENSE file in the root directory of this source tree.
 const { writeFileSync, readdirSync, readFileSync, lstatSync } = require('fs');
 const { join, basename, resolve } = require('path');
 
-const source = resolve(__dirname, '../documentation-site/pages/blog');
+const source = resolve(__dirname, '../pages/blog');
 
 /**
  * Script to read directories from documentation-site/pages/blog
@@ -43,5 +43,5 @@ module.exports = function generatePosts() {
     posts.length ? JSON.stringify(posts) : '[]'
   }; export default posts;`;
 
-  writeFileSync(`${process.cwd()}/documentation-site/posts.js`, content);
+  writeFileSync(`${__dirname}/../posts.js`, content);
 };

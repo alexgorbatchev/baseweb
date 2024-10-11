@@ -22,7 +22,7 @@ files.forEach((file) => {
   }
   try {
     fs.accessSync(from.replace('.js', '.tsx'), fs.constants.F_OK);
-  } catch (e) {
+  } catch {
     throw new Error(`File ${file.replace('.js', '.tsx')} is missing.`);
   }
 });
