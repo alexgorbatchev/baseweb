@@ -14,7 +14,7 @@ if (!process.env.GITHUB_AUTH_TOKEN) {
   throw new Error('No GITHUB_AUTH_TOKEN set.');
 }
 
-const octokit = Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
+const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
 
 const owner = 'uber';
 const repo = 'baseweb';
