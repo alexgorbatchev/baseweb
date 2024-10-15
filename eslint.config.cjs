@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-// ts-check
 
-const react = require('eslint-plugin-react');
-const importPlugin = require('eslint-plugin-import');
 const reactPlugin = require('eslint-plugin-react');
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
-const jsxA11y = require('eslint-plugin-jsx-a11y');
-const prettier = require('eslint-plugin-prettier');
-const jest = require('eslint-plugin-jest');
-const tseslint = require('typescript-eslint');
+const importPlugin = require('eslint-plugin-import');
+const reactHooksPlugin = require('eslint-plugin-react-hooks');
+const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
+const prettierPlugin = require('eslint-plugin-prettier');
+const prettierPluginRecommended = require('eslint-plugin-prettier/recommended');
+const jestPlugin = require('eslint-plugin-jest');
+const typeScriptPlugin = require('typescript-eslint');
 
 // const headers = require('eslint-plugin-headers');
 const globals = require('globals');
@@ -27,14 +26,13 @@ const logger = {
   },
 };
 
-module.exports = tseslint.config(
+module.exports = typeScriptPlugin.config(
+  { name: 'eslint-plugin-react/recommended', ...reactPlugin.configs.flat.recommended },
+  { name: 'eslint-plugin-prettier/recommended', ...prettierPluginRecommended },
+  importPlugin.flatConfigs.recommended,
+  jsxA11yPlugin.flatConfigs.recommended,
+  ...typeScriptPlugin.configs.recommended,
   ...[
-    { name: 'eslint-plugin-react/recommended', ...reactPlugin.configs.flat.recommended },
-    { name: 'eslint-plugin-prettier/recommended', ...eslintPluginPrettierRecommended },
-    importPlugin.flatConfigs.recommended,
-    jsxA11y.flatConfigs.recommended,
-    ...tseslint.configs.recommended,
-
     {
       name: 'eslint.config.cjs/logger',
       plugins: { logger },
@@ -70,9 +68,10 @@ module.exports = tseslint.config(
         // https://github.com/robmisasi/eslint-plugin-headers/issues/5
         //
         // headers,
-        react,
-        prettier,
-        jest,
+        react: reactPlugin,
+        prettier: prettierPlugin,
+        jest: jestPlugin,
+        reactHooks: reactHooksPlugin,
       },
 
       settings: {
