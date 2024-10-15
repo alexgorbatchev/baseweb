@@ -6,10 +6,10 @@ LICENSE file in the root directory of this source tree.
 */
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import isEqual from 'date-fns/isEqual/index.js';
-import isSameDay from 'date-fns/isSameDay/index.js';
-import isSameHour from 'date-fns/isSameHour/index.js';
-import isSameMinute from 'date-fns/isSameMinute/index.js';
+import { isEqual } from 'date-fns/isEqual';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isSameHour } from 'date-fns/isSameHour';
+import { isSameMinute } from 'date-fns/isSameMinute';
 
 import { TestBaseProvider } from '../../test/test-utils';
 
