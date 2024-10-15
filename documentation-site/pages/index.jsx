@@ -199,7 +199,7 @@ const Index = (props) => (
   </Layout>
 );
 
-const octokit = Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
+const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
 Index.getInitialProps = async () => {
   try {
     const contributors = await octokit.paginate('GET /repos/:owner/:repo/contributors', {
