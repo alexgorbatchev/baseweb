@@ -4,7 +4,7 @@ Copyright (c) Uber Technologies, Inc.
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
-import { es } from 'date-fns/locale/index.js';
+import { es } from 'date-fns/locale';
 import * as utilsHelpers from '../utils';
 import { formatDate } from '../utils';
 import DateHelpers from '../utils/date-helpers';

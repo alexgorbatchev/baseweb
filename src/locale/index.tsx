@@ -39,7 +39,8 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   return (
     // this is poorly documented but specifying true enforces that the object is deeply extended
     // https://www.npmjs.com/package/just-extend
-    <LocaleContext.Provider value={extend(true, {}, en_US, parentLocale, locale)}>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <LocaleContext.Provider value={extend(true, {}, en_US, parentLocale, locale) as any}>
       {children}
     </LocaleContext.Provider>
   );

@@ -7,7 +7,7 @@ LICENSE file in the root directory of this source tree.
 import * as React from 'react';
 
 import { StatefulDatepicker } from '..';
-import { hu } from 'date-fns/locale/index.js';
+import { hu } from 'date-fns/locale';
 
 export function Scenario() {
   return (
