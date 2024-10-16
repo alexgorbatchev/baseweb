@@ -38,13 +38,10 @@ E2E test files end with a `.e2e.js` extension. These tests can launch a web page
 
 ```bash
 # in one shell build the library:
-yarn e2e:build
+yarn e2e:dev
 
-# in a second shell serve the web pages:
-yarn e2e:serve
-
-# in a third shell run the integration tests:
-yarn e2e:test src/button/__tests__/button.e2e.js
+# in another shell run the integration tests:
+yarn e2e:test --ui src/button/__tests__/button.e2e.js
 ```
 
 ### Visual regression tests
