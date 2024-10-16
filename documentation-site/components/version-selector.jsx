@@ -14,8 +14,9 @@ import { StatefulPopover, PLACEMENT as PopoverPlacement } from 'baseui/popover';
 import { StatefulMenu, NestedMenus } from 'baseui/menu';
 import { Button, KIND } from 'baseui/button';
 
-import { version } from '../../package.json';
+import pkgJson from '../../package.json';
 
+const { version } = pkgJson;
 const currentMajor = parseInt(version.split('.')[0], 10);
 const majors = [...Array(8).keys()].map((i) => i + currentMajor - 8);
 const majorVersions = majors.reverse().map((version) => ({
