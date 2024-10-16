@@ -30,6 +30,7 @@
     "build:docs-and-ladle": "(cd documentation-site && yarn build) && yarn ladle build && mv build public/ladle",
     "unit-test": "yarn jest --coverage",
     "e2e:build": "yarn ladle build --outDir build-ladle",
+    "e2e:dev": "yarn ladle dev --port 8080",
     "e2e:serve": "static-server build-ladle --port 8080",
     "e2e:test": "playwright test --trace on",
     "e2e:test:ci": "PUPPETEER_TARGET_URL=http://e2e-server:8080 yarn e2e:test",
@@ -136,18 +137,24 @@
     "playwright": "^1.48.0",
     "prettier": "3.3.3",
     "pretty-quick": "4.0.0",
-    "query-string": "^9.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "^7.53.0",
     "react-map-gl": "^5.3.19",
     "shx": "^0.3.4",
     "static-server": "^3.0.0",
-    "styletron-engine-atomic": "^1.6.2",
-    "styletron-react": "^6.1.1",
-    "styletron-standard": "^3.1.0",
     "typescript": "5.6.3",
-    "typescript-eslint": "8.9.0"
+    "typescript-eslint": "8.9.0",
+    "styletron-react": "6.1.1",
+    "styletron-standard": "3.1.0",
+    "styletron-engine-atomic": "1.0.0",
+    "styletron-engine-monolithic": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "styletron-engine-atomic": ">=1",
+    "styletron-standard": ">=3"
   },
   "dependencies": {
     "@date-io/date-fns": "^3.0.0",
@@ -198,7 +205,8 @@
   "json-comments": {
     "tips": "Please install the JsonComments plugin to enable commenting functionality for JSON files, see: https://github.com/zhangfisher/json_comments_extension",
     "package.json": {
-      "resolutions.react-map-gl": "Can't be upgraded due to license changes, see DEPENDENCIES_UPGRADE.md for details"
+      "resolutions.react-map-gl": "Can't be upgraded due to license changes, see DEPENDENCIES_UPGRADE.md for details",
+      "devDependencies.playwright": "playwright version here needs to match FROM in the Dockerfile"
     }
   }
 }
