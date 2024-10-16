@@ -8,13 +8,9 @@ LICENSE file in the root directory of this source tree.
 import type { ElementHandle, Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-// eslint auto-fixes these two imports into a single line, but then tsc complains
-// eslint-disable-next-line import/no-duplicates
 import type axeCore from 'axe-core';
-// eslint-disable-next-line import/no-duplicates
 import type { AxeResults, Rule } from 'axe-core';
 
-import queryString from 'query-string';
 import { printReceived } from 'jest-matcher-utils';
 import { resolve } from 'path';
 import { realpathSync } from 'fs';
@@ -45,15 +41,16 @@ export const addTestStyles = async (page: Page) => {
   });
 };
 
+function queryString(story: string, theme: string | undefined, rtl: boolean | undefined) {
+  let results = `story=${encodeURIComponent(story)}&mode=preview`;
+  if (theme) results += `&theme=${encodeURIComponent(theme)}`;
+  if (rtl) results += `&rtl=true`;
+  return results;
+}
+
 export async function mount(page: Page, name: string, theme?: string, rtl?: boolean) {
   const base = process.env.PUPPETEER_TARGET_URL || 'http://localhost:8080';
-  const url = `${base}?${queryString.stringify({
-    story: name,
-    theme,
-    mode: 'preview',
-    rtl: rtl === true ? 'true' : undefined,
-  })}`;
-
+  const url = `${base}?${queryString(name, theme, rtl)}`;
   await page.goto(url);
   await page.waitForSelector('[data-storyloaded]');
   await addTestStyles(page);

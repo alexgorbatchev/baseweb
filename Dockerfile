@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.47.2-noble
+FROM mcr.microsoft.com/playwright:v1.48.0-noble
 
 WORKDIR /baseui
 

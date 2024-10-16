@@ -8,7 +8,6 @@ LICENSE file in the root directory of this source tree.
 /* eslint-env node */
 
 const { execSync } = require('child_process');
-const Octokit = require('@octokit/rest');
 
 // Load environment variables
 const {
@@ -31,11 +30,6 @@ const ORIGINAL_COMMIT_SHORT_HASH = BUILDKITE_COMMIT.substring(0, 7); // First 7 
 // Derive a consistent and unique snapshot branch name
 const SNAPSHOT_BRANCH_NAME = getSnapshotBranchName();
 
-// Prepare GitHub API helper
-const octokit = Octokit({
-  auth: GITHUB_BOT_AUTH_TOKEN,
-});
-
 process.on('unhandledRejection', function (err) {
   log(`The job has failed, but it is not a failure.`);
   throw err;
@@ -43,7 +37,13 @@ process.on('unhandledRejection', function (err) {
 
 main();
 
+let octokit = null;
+
 async function main() {
+  // Prepare GitHub API helper
+  const { Octokit } = await import('@octokit/rest');
+  octokit = new Octokit({ auth: GITHUB_BOT_AUTH_TOKEN });
+
   if (!buildIsValid()) return;
   if (buildWasTriggeredByPR()) {
     configureGit();

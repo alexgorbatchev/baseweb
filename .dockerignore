@@ -1,4 +1,4 @@
-node_modules
+**/node_modules
 test-results
 playwright-report
 dist
@@ -6,3 +6,7 @@ build-ladle
 .vscode
 public
 .cache
+vrt/tests.vrt.js-snapshots
+**/.next
+**/_next
+coverage
