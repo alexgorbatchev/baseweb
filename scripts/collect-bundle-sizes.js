@@ -21,7 +21,6 @@ async function waitForPort(port) {
   const maxWait = 60_000;
   const singleWait = 5000;
   let totalWait = 0;
-  // eslint-disable-next-line no-constant-condition
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, singleWait));
     totalWait += 1;

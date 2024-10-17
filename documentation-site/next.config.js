@@ -8,12 +8,16 @@ LICENSE file in the root directory of this source tree.
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-env node */
 
-const { resolve } = require('path');
+const { resolve, relative } = require('path');
 const fs = require('fs');
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
+
+const baseuiDir = resolve(__dirname, '../dist');
+console.log('>> Using baseui from', relative(__dirname, baseuiDir));
+console.log('>> To update, please run `yarn build` in the parent directory if necessary');
 
 module.exports = withMDX({
   images: {
@@ -52,13 +56,12 @@ module.exports = withMDX({
 
     config.optimization.splitChunks.maxSize = 20_000;
 
-    const baseuiDir = resolve(__dirname, '../dist');
-
     try {
       const stats = fs.statSync(baseuiDir);
       if (!stats.isDirectory()) throw new Error('no dist');
     } catch {
-      console.error('Missing ../dist folder, run yarn build:cjs in the parent directory');
+      console.error(`Missing ${baseuiDir}`);
+      console.error('Please run `yarn build` in the parent directory');
       process.exit(1);
     }
 
