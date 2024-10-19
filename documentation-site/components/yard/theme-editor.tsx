@@ -124,9 +124,9 @@ const ThemeEditor: React.FC<ThemeEditorProps> = ({ theme, themeInit, set, compon
       <ParagraphXSmall marginLeft="scale200" marginRight="scale200" marginBottom="scale400">
         Do you want to change {componentName} colors globally? You can customize the theme through
         ThemeProvider and set your own colors.{' '}
-        <Link href="/guides/theming/#a-custom-theme">
-          <StyledLink href="/guides/theming/#a-custom-theme">Learn more</StyledLink>
-        </Link>
+        <StyledLink $as="div">
+          <Link href="/guides/theming/#a-custom-theme">Learn more</Link>
+        </StyledLink>
         . Try different values:
       </ParagraphXSmall>
       <div

@@ -164,7 +164,6 @@
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
-    "just-extend": "6.2.0",
     "memoize-one": "^6.0.0",
     "polished": "^4.3.1",
     "popper.js": "^1.16.1",

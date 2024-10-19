@@ -57,26 +57,24 @@ export default function HeaderNavigation({ toggleSidebar, toggleTheme, toggleDir
         })}
       >
         {/* Base Web Logo */}
-        <Link href="/">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a
-            className={css({
-              display: 'flex',
-              marginLeft: theme.direction === 'rtl' ? theme.sizing.scale400 : 'none',
-              marginRight: theme.direction === 'rtl' ? 'none' : theme.sizing.scale400,
-              ':focus': {
-                outline: `3px solid ${theme.colors.accent}`,
-                outlineOffset: '5px',
-              },
-            })}
-          >
-            <img
-              src={theme.name.startsWith('dark') ? LightLogo : DarkLogo}
-              alt="Base Web"
-              height="40px"
-              width="97px"
-            />
-          </a>
+        <Link
+          href="/"
+          className={css({
+            display: 'flex',
+            marginLeft: theme.direction === 'rtl' ? theme.sizing.scale400 : 'none',
+            marginRight: theme.direction === 'rtl' ? 'none' : theme.sizing.scale400,
+            ':focus': {
+              outline: `3px solid ${theme.colors.accent}`,
+              outlineOffset: '5px',
+            },
+          })}
+        >
+          <img
+            src={theme.name.startsWith('dark') ? LightLogo : DarkLogo}
+            alt="Base Web"
+            height="40px"
+            width="97px"
+          />
         </Link>
         {/* Version Selector */}
         <div
@@ -92,7 +90,6 @@ export default function HeaderNavigation({ toggleSidebar, toggleTheme, toggleDir
         {/* Link to blog */}
         <Link href="/blog" passHref>
           <Button
-            $as="a"
             size={SIZE.compact}
             kind={KIND.tertiary}
             overrides={{
@@ -112,7 +109,6 @@ export default function HeaderNavigation({ toggleSidebar, toggleTheme, toggleDir
         {/* Link to component gallery */}
         <Link href="/components" passHref>
           <Button
-            $as="a"
             size={SIZE.compact}
             kind={KIND.tertiary}
             overrides={{

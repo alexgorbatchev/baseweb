@@ -35,7 +35,7 @@ const StyledFooter = themedStyled('footer', ({ $theme: { typography, sizing, col
   textAlign: 'center',
 }));
 
-const StyledLink = themedStyled('a', ({ $theme }) => ({
+const StyledLink = themedStyled(Link, ({ $theme }) => ({
   textDecoration: 'none',
   color: $theme.colors.contentPrimary,
   display: 'inline-block',
@@ -73,9 +73,7 @@ function Footer() {
         <StyledLink href="https://github.com/uber/baseweb/releases" target="_blank">
           Changelog
         </StyledLink>
-        <Link href="/blog">
-          <StyledLink href="/blog">Blog</StyledLink>
-        </Link>
+        <StyledLink href="/blog">Blog</StyledLink>
       </Block>
       <UberLogo />
     </StyledFooter>

@@ -16,9 +16,9 @@ export default function UnstableWarning() {
     <Notification overrides={{ Body: { style: { width: 'auto' } } }} kind={KIND.positive}>
       <>
         View the{' '}
-        <Link href="/guides/tables">
-          <StyledLink href="/guides/tables">table guide</StyledLink>
-        </Link>{' '}
+        <StyledLink $as="div">
+          <Link href="/guides/tables">table guide</Link>
+        </StyledLink>{' '}
         to see which Base Web table is best suited for your application.
       </>
     </Notification>

@@ -36,9 +36,9 @@ const CustomNavItem = ({ item, onSelect, onClick, onKeyDown, ...restProps }) => 
 
 const CustomNavLink = (props) => {
   return props.href ? (
-    <Link href={props.href}>
-      <StyledNavLink {...props} />
-    </Link>
+    <StyledNavLink $as="div">
+      <Link {...props} style={{ textDecoration: 'none', color: 'currentcolor' }} />
+    </StyledNavLink>
   ) : (
     <StyledNavLink {...props} />
   );

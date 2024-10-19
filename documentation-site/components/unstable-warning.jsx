@@ -21,9 +21,9 @@ export default function UnstableWarning() {
         can be presented before
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         aligning on a consistent design. Please see baseui's{' '}
-        <Link href="/discover-more/versioning-policy">
-          <StyledLink href="/discover-more/versioning-policy">versioning policy</StyledLink>
-        </Link>{' '}
+        <StyledLink $as="div">
+          <Link href="/discover-more/versioning-policy">versioning policy</Link>
+        </StyledLink>{' '}
         for more information.
       </>
     </Notification>

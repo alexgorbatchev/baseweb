@@ -70,22 +70,19 @@ const Index = () => {
                 },
               }}
             >
-              <StyledAction>
-                <Link href={p.path}>
-                  <Button
-                    kind={KIND.secondary}
-                    $as="a"
-                    rel="noreferrer noopener"
-                    href={p.path}
-                    overrides={{
-                      BaseButton: {
-                        style: { boxSizing: 'border-box', width: '100%' },
-                      },
-                    }}
-                  >
+              <StyledAction $as="div">
+                <Button
+                  kind={KIND.secondary}
+                  overrides={{
+                    BaseButton: {
+                      style: { boxSizing: 'border-box', width: '100%' },
+                    },
+                  }}
+                >
+                  <Link href={p.path} rel="noreferrer noopener">
                     Read
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </StyledAction>
               <StyledTitle $style={{ marginTop: '1em' }}>{p.title}</StyledTitle>
               <MetaData>{`${p.author} - ${p.date}`}</MetaData>

@@ -5,7 +5,6 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 //
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* global process */
 import * as React from 'react';
 
@@ -13,6 +12,7 @@ import Head from 'next/head';
 import Img from 'next/legacy/image';
 import { Block } from 'baseui/block';
 import { StyledLink } from 'baseui/link';
+import { withWrapper } from 'baseui/styles';
 import Code from './code';
 import { themedStyled } from '../pages/_app';
 import Link from 'next/link';
@@ -104,7 +104,7 @@ export const DocLink = ({ children, href }) => {
   if (internal) {
     return (
       <Link href={href}>
-        <StyledLink href={href}>{children}</StyledLink>
+        <StyledLink $as="div">{children}</StyledLink>
       </Link>
     );
   }

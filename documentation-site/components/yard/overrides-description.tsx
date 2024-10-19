@@ -13,9 +13,9 @@ const OverridesDescription: React.FC<{ componentName: string }> = ({ componentNa
   <ParagraphXSmall marginLeft="scale200" marginRight="scale200" marginBottom="scale400">
     Additionally, you can fully customize any part of the {componentName} component through the
     overrides prop (
-    <Link href="/guides/understanding-overrides">
-      <StyledLink href="/guides/understanding-overrides">learn more</StyledLink>
-    </Link>
+    <StyledLink $as="div">
+      <Link href="/guides/understanding-overrides">learn more</Link>
+    </StyledLink>
     ). Try to update different <b>style overrides</b> in the explorer bellow:
   </ParagraphXSmall>
 );
