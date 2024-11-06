@@ -15,7 +15,7 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
 
-const baseuiDir = resolve(__dirname, '../dist');
+const baseuiDir = resolve(__dirname, './baseui');
 console.log('>> Using baseui from', relative(__dirname, baseuiDir));
 console.log('>> To update, please run `yarn build` in the parent directory if necessary');
 
@@ -30,7 +30,9 @@ module.exports = withMDX({
     loadYard: process.env.LOAD_YARD,
   },
   trailingSlash: true,
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'mdx'],
+  output: 'export',
+  distDir: './dist',
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     // Exclude image formats from next-image-loader
     const imageRuleIndex = config.module.rules.findIndex(
@@ -81,11 +83,6 @@ module.exports = withMDX({
       return entries;
     };
 
-    if (dev) {
-      config.devtool = 'inline-source-map';
-    }
-
     return config;
   },
-  pageExtensions: ['js', 'jsx', 'mdx'],
 });
