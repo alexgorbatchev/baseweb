@@ -147,6 +147,11 @@ module.exports = typeScriptPlugin.config(
     },
 
     {
+      name: 'eslint/defaults/files',
+      ignores: ['**/_next/**', '**/.wireit/**'],
+    },
+
+    {
       name: 'baseweb/js',
       files: ['**/*.js', '**/*.jsx'],
       rules: {
