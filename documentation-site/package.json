@@ -3,15 +3,46 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "generate-files": "node ./scripts/build-documentation-site-files.js",
-    "dev": "run-s generate-files next:dev",
-    "build": "run-s generate-files next:build",
-    "build:baseui": "cd .. && yarn build",
-    "rebuild": "run-s build:baseui build",
+    "dev": "wireit",
+    "build": "wireit",
     "serve": "static-server public --port 8081",
-    "next:dev": "next dev",
-    "next:build": "NODE_OPTIONS=--max_old_space_size=8192 next build",
     "thumbs:generate": "svgr --template ./components/thumbs/template.js --replace-attr-values \"#F6F6F6={props.colors[0]}\" --replace-attr-values \"#E2E2E2={props.colors[1]}\" --replace-attr-values \"#CBCBCB={props.colors[2]}\" -d ./components/thumbs/components ./components/thumbs/svg"
+  },
+  "wireit": {
+    "build": {
+      "command": "next build",
+      "env": {
+        "NODE_OPTIONS": "--max_old_space_size=8192"
+      },
+      "files": [
+        "baseui",
+        "components",
+        "examples",
+        "helpers",
+        "pages",
+        "scripts",
+        "public",
+        "baseui"
+      ],
+      "output": [
+        "dist"
+      ],
+      "dependencies": [
+        "generate-files"
+      ]
+    },
+    "dev": {
+      "command": "next dev",
+      "dependencies": [
+        "generate-files"
+      ]
+    },
+    "generate-files": {
+      "command": "node ./scripts/build-documentation-site-files.js",
+      "dependencies": [
+        "..:build"
+      ]
+    }
   },
   "dependencies": {
     "npm-run-all2": "^6.2.3",
@@ -35,7 +66,8 @@
     "react-icons": "^3.8.0",
     "next": "^14.2.15",
     "file-loader": "^6.2.0",
-    "js-tokens": "^9.0.0"
+    "js-tokens": "^9.0.0",
+    "wireit": "^0.14.9"
   },
   "resolutions": {
     "js-tokens": "9.0.0"
@@ -65,6 +97,6 @@
     "styletron-react": "^6.1.1",
     "styletron-standard": "^3.1.0",
     "styletron-engine-atomic": "^1.0.0",
-    "styletron-engine-monolithic": "^1.0.0",
+    "styletron-engine-monolithic": "^1.0.0"
   }
 }

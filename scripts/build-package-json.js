@@ -19,11 +19,9 @@ const asyncStat = util.promisify(fs.stat);
 async function buildPackageJsonFiles() {
   const distPath = path.resolve(__dirname, '../dist');
   const esmPath = path.join(distPath, 'esm');
-  const dirs = [];
   for (const file of await asyncReaddir(esmPath)) {
     const fileStat = await asyncStat(path.join(esmPath, file));
     if (fileStat.isDirectory()) {
-      dirs.push(file);
       const data = {
         sideEffects: false,
         module: path.join('../esm', file, 'index.js'),

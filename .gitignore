@@ -27,3 +27,4 @@ __artifacts__
 test-results
 .netlify
 playwright-report 
+.wireit

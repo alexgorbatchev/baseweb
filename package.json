@@ -14,21 +14,11 @@
   "module": "./esm/index.js",
   "repository": "uber/baseweb",
   "scripts": {
-    "lint:code": "eslint ./ --cache",
+    "lint:code": "eslint ./ --cache --quiet",
     "lint:markdown": "markdownlint -c ./.markdownlint.json proposals",
-    "lint": "yarn lint:code && yarn lint:markdown",
-    "pretest": "cd documentation-site && yarn prebuild",
-    "test": "yarn validate:examples && yarn lint && yarn tsc && yarn unit-test",
-    "prebuild": "shx rm -rf dist",
-    "build:copy-files": "shx cp README.md dist/README.md",
-    "build:dts-files": "tsc -p tsconfig.dist.json",
-    "build:package-json": "shx cp package.json dist/package.json && shx cp .npmrc dist/.npmrc && node ./scripts/build-package-json.js",
-    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel ./src --out-dir ./dist --extensions '.ts,.tsx,.js' --ignore **.test.*,**/__tests__/**,**/e2e.*,**/template-component/**,**/test/**",
-    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel ./src --out-dir ./dist/esm --extensions '.ts,.tsx,.js' --ignore **.test.*,**/__tests__/**,**/e2e.*,**/template-component/**,**/test/**",
-    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel ./src --out-dir ./dist/es --extensions '.ts,.tsx,.js' --ignore **.test.*,**/__tests__/**,**/e2e.*,**/template-component/**,**/test/**",
-    "build": "yarn build:cjs && yarn build:esm && yarn build:es && yarn build:copy-files && yarn build:dts-files && yarn build:package-json",
-    "build:docs-and-ladle": "(cd documentation-site && yarn build) && yarn ladle build && mv build public/ladle",
-    "unit-test": "yarn jest --coverage",
+    "lint": "wireit",
+    "test": "wireit",
+    "build": "wireit",
     "e2e:build": "yarn ladle build --outDir build-ladle",
     "e2e:dev": "yarn ladle dev --port 8080",
     "e2e:serve": "static-server build-ladle --port 8080",
@@ -40,9 +30,102 @@
     "vrt:ci": "PUPPETEER_TARGET_URL=http://e2e-server:8080 node ./vrt/ci.js",
     "vrt:reset": "shx rm -rf vrt/tests.vrt.js-snapshots",
     "icon:generate": "node ./src/icon/build-icons.js",
-    "install": "node -e \"console.log('If you are using Webpack, please make sure to update to version ^4.32.0, as this Base Web version depends on a webpack fix delivered in that version. If you are using Fusion.js make sure to upgrade fusion-cli to ^2.4.2 as it has the Webpack upgrade.')\"",
     "tsc": "tsc",
     "validate:examples": "node ./scripts/validate-examples.js"
+  },
+  "wireit": {
+    "test": {
+      "command": "yarn jest --coverage",
+      "files": [
+        "src",
+        "documentation-site",
+        "eslint.config.cjs"
+      ],
+      "dependencies": [
+        "validate:examples",
+        "lint",
+        "tsc"
+      ]
+    },
+    "lint": {
+      "dependencies": [
+        "lint:code",
+        "lint:markdown"
+      ]
+    },
+    "build": {
+      "dependencies": [
+        "build:cjs",
+        "build:esm",
+        "build:es",
+        "build:copy-files",
+        "build:dts-files",
+        "build:package-json"
+      ]
+    },
+    "build:cjs": {
+      "command": "babel ./src --out-dir ./dist --extensions '.ts,.tsx,.js' --ignore **.test.*,**/__tests__/**,**/e2e.*,**/template-component/**,**/test/**",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "cjs"
+      },
+      "files": [
+        "./src"
+      ],
+      "output": [
+        "./dist"
+      ]
+    },
+    "build:esm": {
+      "command": "babel ./src --out-dir ./dist/esm --extensions '.ts,.tsx,.js' --ignore **.test.*,**/__tests__/**,**/e2e.*,**/template-component/**,**/test/**",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "esm"
+      },
+      "files": [
+        "./src"
+      ],
+      "output": [
+        "./dist/esm"
+      ]
+    },
+    "build:es": {
+      "command": "babel ./src --out-dir ./dist/es --extensions '.ts,.tsx,.js' --ignore **.test.*,**/__tests__/**,**/e2e.*,**/template-component/**,**/test/**",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "es"
+      },
+      "files": [
+        "./src"
+      ],
+      "output": [
+        "./dist/es"
+      ]
+    },
+    "build:copy-files": {
+      "command": "shx cp {README.md,package.json,.npmrc} dist/",
+      "dependencies": [
+        "build:cjs"
+      ]
+    },
+    "build:dts-files": {
+      "command": "tsc -p tsconfig.dist.json",
+      "files": [
+        "./src"
+      ],
+      "output": [
+        "./dist/**/*.d.ts",
+        "./dist/*.d.ts"
+      ]
+    },
+    "build:package-json": {
+      "command": "node ./scripts/build-package-json.js",
+      "dependencies": [
+        "build:cjs",
+        "build:es",
+        "build:esm"
+      ]
+    }
   },
   "bundledDependencies": [
     "baseui"
@@ -148,7 +231,8 @@
     "styletron-react": "6.1.1",
     "styletron-standard": "3.1.0",
     "styletron-engine-atomic": "1.0.0",
-    "styletron-engine-monolithic": "1.0.0"
+    "styletron-engine-monolithic": "1.0.0",
+    "wireit": "^0.14.9"
   },
   "peerDependencies": {
     "react": ">=18",
