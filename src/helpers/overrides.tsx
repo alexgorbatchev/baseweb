@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /*
 Copyright (c) Uber Technologies, Inc.
 
@@ -8,11 +9,12 @@ LICENSE file in the root directory of this source tree.
 import * as React from 'react';
 import { isValidElementType } from 'react-is';
 import deepMerge from '../utils/deep-merge';
+import type { Theme } from '../styles';
 
-// Object -> any
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ConfigurationOverrideFunction = (a: any) => any | undefined | null;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ConfigurationOverrideFunction<T extends { $theme: Theme } = { $theme: Theme }> = (
+  a: T & Record<string, any>
+) => any | undefined | null;
+
 export type ConfigurationOverrideObject = { [k: string]: any };
 
 export type ConfigurationOverride = ConfigurationOverrideObject | ConfigurationOverrideFunction;
@@ -20,23 +22,21 @@ export type ConfigurationOverride = ConfigurationOverrideObject | ConfigurationO
 export type StyleOverride = ConfigurationOverride;
 
 export type OverrideObject = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component?: React.ComponentType<any> | null;
   props?: ConfigurationOverride | null;
   style?: ConfigurationOverride | null;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type Override<T = any> =
   | OverrideObject
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   | (React.ComponentType<any> & {
       component?: undefined;
       props?: undefined;
       style?: undefined;
     });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type Overrides<T = any> = {
   [x: string]: Override;
 };
@@ -44,7 +44,6 @@ export type Overrides<T = any> = {
 /**
  * Given an override argument, returns the component implementation override if it exists
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getOverride(_override: any): any {
   if (isValidElementType(_override)) {
     return _override;
@@ -89,7 +88,6 @@ export function getOverrideProps<T>(_override?: Override | null): T {
 export function toObjectOverride<T>(_override?: Override): OverrideObject {
   if (isValidElementType(_override)) {
     return {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       component: _override as any as React.ComponentType<T>,
     };
   }
@@ -97,20 +95,15 @@ export function toObjectOverride<T>(_override?: Override): OverrideObject {
   // Flow can't figure out that typeof 'function' above will
   // catch React.StatelessFunctionalComponent
   // (probably related to https://github.com/facebook/flow/issues/6666)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return _override || ({} as any as OverrideObject);
 }
 
 /**
  * Get a convenient override array that will always have [component, props]
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getOverrides<T = { [k: string]: any }>(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _override: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   defaultComponent: React.ComponentType<any>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): [React.ComponentType<any>, T] {
   const Component = getOverride(_override) || defaultComponent;
 
@@ -200,7 +193,6 @@ export function mergeConfigurationOverrides(
 // Lil' hook for memoized unpacking of overrides
 export function useOverrides(
   defaults: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [x: string]: React.ComponentType<any>;
   },
   overrides: Overrides = {}
@@ -208,7 +200,6 @@ export function useOverrides(
   return React.useMemo(
     () =>
       Object.keys(defaults).reduce<{
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         [x: string]: [React.ComponentType<any>, {}];
       }>((obj, key) => {
         obj[key] = getOverrides(overrides[key], defaults[key]);
