@@ -6,23 +6,27 @@ LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
 
-import { Block, type BlockComponentType, type StyledBlockProps } from '../block/index';
+import {
+  Block,
+  type BlockProps,
+  type BlockWithForwardRef,
+  type OverrideProps,
+} from '../block/index';
 import { flattenFragments } from '../helpers/react-helpers';
 import { getOverrides } from '../helpers/overrides';
 import type { FlexGridProps } from './types';
 
-export const BaseFlexGrid = React.forwardRef<
-  BlockComponentType<'div'>,
-  React.ComponentProps<BlockComponentType<'div'>>
->(({ display, flexWrap, ...restProps }, ref) => (
-  <Block
-    display={display || 'flex'}
-    flexWrap={flexWrap || flexWrap === false ? flexWrap : true}
-    data-baseweb="flex-grid"
-    {...restProps}
-    ref={ref}
-  />
-));
+export const BaseFlexGrid: BlockWithForwardRef<'div'> = React.forwardRef(
+  ({ display, flexWrap, ...restProps }: OverrideProps<'div', BlockProps>, ref) => (
+    <Block
+      display={display || 'flex'}
+      flexWrap={flexWrap || flexWrap === false ? flexWrap : true}
+      data-baseweb="flex-grid"
+      {...restProps}
+      ref={ref}
+    />
+  )
+);
 BaseFlexGrid.displayName = 'BaseFlexGrid';
 
 const FlexGrid: React.FC<
@@ -72,18 +76,12 @@ const FlexGrid: React.FC<
   );
 };
 
-interface FlexGridComponentType<D extends React.ElementType> {
-  <C extends React.ElementType = D>(
-    props: FlexGridProps<C> &
-      (React.ComponentProps<C> extends { ref?: infer R } ? { ref?: R } : {}) &
-      Omit<StyledBlockProps & React.ComponentProps<C>, keyof FlexGridProps>
-  ): JSX.Element;
-  displayName?: string;
-}
+const FlexGridComponent: BlockWithForwardRef<'div', FlexGridProps> = React.forwardRef(
+  <TElement extends React.ElementType = 'div'>(
+    props: OverrideProps<TElement, BlockProps<TElement> & FlexGridProps>,
+    ref
+  ) => <FlexGrid {...props} forwardedRef={ref} />
+);
 
-const FlexGridComponent = React.forwardRef((props: FlexGridProps, ref) => (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  <FlexGrid {...props} forwardedRef={ref as any} />
-)) as FlexGridComponentType<'div'>;
 FlexGridComponent.displayName = 'FlexGrid';
 export default FlexGridComponent;

@@ -8,7 +8,7 @@ LICENSE file in the root directory of this source tree.
 import * as React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import Block from '../block';
+import { Block } from '../block';
 
 describe('Block', () => {
   it('renders themed backgroundColor if provided', () => {

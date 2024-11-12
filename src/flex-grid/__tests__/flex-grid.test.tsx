@@ -12,12 +12,10 @@ import { camelToKebab } from '../../helpers/strings';
 
 describe('FlexGrid', () => {
   it('passes FlexGrid props to children', () => {
-    // @ts-ignore
     const MockFlexGridItem = (props) => (
       <div
         {...Object.keys(props).reduce((acc, key) => {
           // Convert to kebab to avoid React warnings
-          // @ts-ignore
           acc[camelToKebab(key)] = props[key];
           return acc;
         }, {})}
@@ -29,7 +27,6 @@ describe('FlexGrid', () => {
         <MockFlexGridItem>Item 2</MockFlexGridItem>
       </FlexGrid>
     );
-    // eslint-disable-next-line jest/no-restricted-matchers
     expect(prettyDOM(baseElement)).toMatchSnapshot('FlexGridItem with flexGridColumnCount');
   });
 });

@@ -6,16 +6,16 @@ LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
 
-import type { BlockComponentType } from '../block';
+import type { BlockProps, OverrideProps } from '../block';
 import { Block } from '../block';
 
-export const AspectRatioBoxBody: BlockComponentType<'div'> = ({
+export const AspectRatioBoxBody = ({
   position,
   top,
   bottom,
   width,
   ...restProps
-}) => (
+}: OverrideProps<'div', BlockProps<'div'>>) => (
   <Block
     data-baseweb="aspect-ratio-box-body"
     position={position || 'absolute'}

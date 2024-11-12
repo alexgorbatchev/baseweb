@@ -403,18 +403,48 @@ export type StyledBlockProps = {
   $whiteSpace?: Responsive<WhiteSpace>;
 };
 
-type BaseProps<P extends {}> = P & {
-  $style?: StyleObject | ((props: P) => StyleObject);
-  className?: string;
-};
+/**
+ * Allows for arbitrary `$...` props to be passed to the `<Block />` component.
+ */
+export type StyledUserProps = Record<`$${string}`, unknown>;
+
+type BaseProps<P extends object> = StyledUserProps &
+  P & {
+    $style?: StyleObject | ((props: P) => StyleObject);
+    className?: string;
+  };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AddStyletronRef<P extends { ref: any }> = P extends { ref: infer R } ? P & { $ref?: R } : P;
 
-export type OverrideProps<D extends React.ElementType, P extends {}> = BaseProps<P> &
+export type OverrideProps<D extends React.ElementType, P extends object> = BaseProps<P> &
   Omit<AddStyletronRef<React.ComponentProps<D>>, keyof BaseProps<P>>;
 
 export interface BlockComponentType<D extends React.ElementType> {
   <C extends React.ElementType = D>(props: OverrideProps<C, BlockProps<C>>): JSX.Element;
   displayName?: string;
 }
+
+/**
+ * Helper type to create a strongly typed components derived from `<Block />` and wrapped with `React.forwardRef()`
+ * Features like `as={...}` don't get strong typing with components created with `forwardRef()` otherwise.
+ *
+ * @example
+ * const FlexGridComponent: BlockWithForwardRef<'div', FlexGridProps> = React.forwardRef(
+ *   <TElement extends React.ElementType = 'div'>(
+ *     props: OverrideProps<TElement, BlockProps<TElement> & FlexGridProps>,
+ *     ref
+ *   ) => <FlexGrid {...props} forwardedRef={ref} />
+ * );
+ */
+export type BlockWithForwardRef<
+  TDefaultElement extends React.ElementType,
+  TExtraProps extends object = object,
+> = {
+  <TElement extends React.ElementType = TDefaultElement>(
+    props: OverrideProps<TElement, BlockProps<TElement> & StyledUserProps & TExtraProps> & {
+      ref?: React.LegacyRef<unknown>;
+    }
+  ): React.ReactNode;
+  displayName?: string;
+};
