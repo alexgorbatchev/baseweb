@@ -13,7 +13,7 @@
  *
  * To work around this issue, I've copied the `extend` function here.
  *
- * https://github.com/angus-c/just
+ * source: https://github.com/angus-c/just
  */
 
 //
@@ -39,7 +39,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
-module.exports = extend;
 
 /*
   var obj = {a: 3, b: 5};
@@ -69,8 +68,8 @@ module.exports = extend;
   extend(3, {a: 4, b: 5}); // throws
 */
 
-function extend(/* [deep], obj1, obj2, [objn] */) {
-  var args = [].slice.call(arguments);
+export function extend(...argsOrig: any[] /* [deep], obj1, obj2, [objn] */) {
+  var args = [].slice.call(argsOrig);
   var deep = false;
   if (typeof args[0] == 'boolean') {
     deep = args.shift();
@@ -88,6 +87,7 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
         var value = extender[key];
         if (deep && isCloneable(value)) {
           var base = Array.isArray(value) ? [] : {};
+          // @ts-ignore
           result[key] = extend(true, result.hasOwnProperty(key) ? result[key] : base, value);
         } else {
           result[key] = value;

@@ -5,7 +5,7 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
 */
 import * as React from 'react';
-import extend from './just-extend';
+import { extend } from './just-extend';
 
 import type { Locale } from './types';
 import en_US from './en_US';
