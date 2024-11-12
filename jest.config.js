@@ -28,6 +28,9 @@ const config = {
   testEnvironmentOptions: {
     url: 'http://localhost/',
   },
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/(?!d3.*|internmap|delaunator|react-movable|robust-predicates)',
+  ],
 };
 
 module.exports = config;
