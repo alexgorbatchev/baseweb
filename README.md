@@ -15,21 +15,22 @@
 
 On December 19, 2023 [Uber has announced](https://baseweb.design/blog/open-source-engagement/) that they would no longer maintain Baseweb. It's not hard to imagine the reasons why given the tech climate in 2023.
 
-On the same day, an aptly named PR "Big codebase and CI cleanup" ([#5323](https://github.com/uber/baseweb/pull/5323/commits/3d726253fa78425fbacf43b97fef8b3e709fe525)) deleted most of the test files, all of the visual regression snapshots, and all of the infrastructure and setup files, effectively kneecapping the repo.
+On the same day, an aptly named PR "Big codebase and CI cleanup" ([#5323](https://github.com/uber/baseweb/pull/5323/commits/3d726253fa78425fbacf43b97fef8b3e709fe525)) deleted all of the visual regression snapshots, and all of the test infrastructure and setup files, effectively kneecapping the repo.
 
-In 2024 Uber dropped a number of new features and breaking changes, releasing two "major" versions under the new "Open Source Engagement" without any changelog or explanation. Somewhere along the way all documentation for previous versions was removed from the website.
+In 2024 Uber dropped a number of new features and breaking changes, releasing two major versions (14 and 15) without any changelog or explanation as per the "Open Source Engagement". Somewhere along the way all documentation for previous versions was removed from the website.
 
-In summary, given the current state of the original repository it is safe to say that it's not usable in any shape or form and may as well be archived.
+In summary, given the current state of the original repository it shouldn't be used for any serious projects.
 
 ## The fork
 
-This fork begins from the last known stable release, which was [v13.0.0](https://github.com/uber/baseweb/releases/tag/v13.0.0). The following work has been performed:
+This fork begins from the last known stable release, which is [v13.0.0](https://github.com/uber/baseweb/releases/tag/v13.0.0). The following work has been performed:
 
 - Unit tests are fully passing. Oddly enough even in v13 tests were not passing.
 - Complete overhaul of the visual regression tests infrastructure. Besides many issues that prevented it from running, another aptly named PR "fix tsc" ([#5290](https://github.com/uber/baseweb/pull/5290/files)) deleted two VRT stories. The missing stories prevented VRT from passing. Curiously, this was done on June 9, 2023. 
 - All dependencies upgraded to latest (as of November 2024), including migration to ESLint 9 with flat config.
 - Fixed documentation site build, which also wasn't working.
 - Cleaned up and migrated build scripts to [wireit](https://github.com/google/wireit).
+- Made `<Block />` fully typed.
 
 I've put in almost a month of full-time work to get this repo to a stable point because we have almost 4,000 imports from `baseui` in our project, and migrating away isn't a viable option.
 
